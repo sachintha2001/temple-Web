@@ -399,27 +399,27 @@ export default function PoyaScheduleEditorModal({
             </div>
 
             {/* Modal Actions */}
-            <div className="pt-4 border-t border-[#e6dfd3] flex flex-wrap items-center justify-between gap-3">
+            <div className="pt-4 border-t border-[#e6dfd3] flex flex-col-reverse sm:flex-row sm:items-center justify-between gap-3">
               <button
                 type="button"
                 onClick={handleResetToDefault}
-                className="text-xs text-[#64748b] hover:text-[#92400e] flex items-center gap-1"
+                className="text-xs text-[#64748b] hover:text-[#92400e] flex items-center justify-center sm:justify-start gap-1 py-1"
               >
                 <RotateCcw className="w-3.5 h-3.5" />
                 <span>පෙරනිමියට යළි සකසන්න</span>
               </button>
 
-              <div className="flex items-center gap-2">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 w-full sm:w-auto">
                 <button
                   type="button"
                   onClick={onClose}
-                  className="px-4 py-2 text-xs font-medium text-[#475569] hover:bg-[#f1ece1] rounded-xl transition-colors"
+                  className="w-full sm:w-auto px-4 py-2.5 text-xs font-medium text-[#475569] hover:bg-[#f1ece1] rounded-xl transition-colors text-center"
                 >
                   අවලංගු කරන්න
                 </button>
                 <button
                   type="submit"
-                  className="px-5 py-2.5 text-xs sm:text-sm font-semibold text-white bg-[#92400e] hover:bg-[#712c00] rounded-xl shadow-md transition-colors flex items-center gap-1.5"
+                  className="w-full sm:w-auto px-5 py-2.5 text-xs sm:text-sm font-semibold text-white bg-[#92400e] hover:bg-[#712c00] rounded-xl shadow-md transition-colors flex items-center justify-center gap-1.5 text-center"
                 >
                   <CheckCircle2 className="w-4 h-4" />
                   <span>කාලසටහන සුරකින්න</span>

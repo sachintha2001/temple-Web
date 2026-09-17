@@ -101,12 +101,12 @@ export default function InteractiveBuddhistCalendar({
   if (isModal && !isOpen) return null;
 
   const content = (
-    <div className="bg-[#fdfbf7] border border-[#e6dfd3] rounded-3xl p-5 sm:p-7 shadow-xl w-full max-w-2xl mx-auto space-y-6">
+    <div className="bg-[#fdfbf7] border border-[#e6dfd3] rounded-3xl p-3.5 sm:p-7 shadow-xl w-full max-w-2xl mx-auto space-y-4 sm:space-y-6">
       {/* 1. CALENDAR HEADER */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[#e6dfd3] pb-4">
         <div>
           <div className="flex items-center gap-2 mb-1">
-            <span className="text-[11px] font-bold uppercase tracking-wider text-[#92400e] bg-[#ffc2a5]/40 px-2.5 py-0.5 rounded-full border border-[#92400e]/20 flex items-center gap-1">
+            <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-[#92400e] bg-[#ffc2a5]/40 px-2.5 py-0.5 rounded-full border border-[#92400e]/20 flex items-center gap-1">
               <Moon className="w-3 h-3 text-[#d97706]" />
               <span>ශ්‍රී බුද්ධ වර්ෂ {beYear}</span>
             </span>
@@ -117,7 +117,7 @@ export default function InteractiveBuddhistCalendar({
               අද දිනට (Today)
             </button>
           </div>
-          <h2 className="font-serif-monastic text-xl sm:text-2xl font-bold text-[#1e293b] flex items-center gap-2">
+          <h2 className="font-serif-monastic text-lg sm:text-2xl font-bold text-[#1e293b] flex items-center gap-2">
             <span>{currentYear} {sinhalaMonthName}</span>
             <span className="text-xs font-normal text-[#64748b]">
               ({new Date(currentYear, currentMonth - 1).toLocaleString("en-US", { month: "long" })})
@@ -126,7 +126,7 @@ export default function InteractiveBuddhistCalendar({
         </div>
 
         {/* Month Navigation Controls */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 self-end sm:self-auto">
           <button
             onClick={handlePrevMonth}
             aria-label="පසුගිය මාසය"
@@ -158,12 +158,12 @@ export default function InteractiveBuddhistCalendar({
         {SINHALA_WEEKDAYS.map((wd, i) => (
           <div
             key={wd.short}
-            className={`py-1.5 rounded-lg text-xs font-bold ${
+            className={`py-1 sm:py-1.5 px-0.5 rounded-lg text-xs font-bold ${
               i === 0 ? "text-[#b91c1c] bg-red-50/70" : "text-[#475569] bg-[#f8f5ee]"
             }`}
           >
-            <span className="block text-[11px] sm:text-xs">{wd.short}</span>
-            <span className="block text-[9px] text-[#94a3b8] font-mono font-normal">
+            <span className="block text-[10px] sm:text-xs truncate">{wd.short}</span>
+            <span className="block text-[8px] sm:text-[9px] text-[#94a3b8] font-mono font-normal">
               {wd.en}
             </span>
           </div>
@@ -189,7 +189,7 @@ export default function InteractiveBuddhistCalendar({
             <button
               key={day}
               onClick={() => setSelectedDay(day)}
-              className={`relative h-11 sm:h-13 rounded-xl p-1 flex flex-col items-center justify-between transition-all cursor-pointer ${
+              className={`relative h-10 sm:h-13 rounded-lg sm:rounded-xl p-0.5 sm:p-1 flex flex-col items-center justify-between transition-all cursor-pointer ${
                 isPoya
                   ? "bg-amber-100 hover:bg-amber-200 border-2 border-amber-500 shadow-sm text-amber-950 font-bold"
                   : isSelected
@@ -199,15 +199,15 @@ export default function InteractiveBuddhistCalendar({
                   : "bg-white hover:bg-[#f8f5ee] border border-[#e6dfd3] text-[#334155]"
               }`}
             >
-              <div className="w-full flex items-center justify-between px-1">
-                <span className="text-xs sm:text-sm font-semibold">{day}</span>
+              <div className="w-full flex items-center justify-between px-0.5 sm:px-1">
+                <span className="text-[11px] sm:text-sm font-semibold">{day}</span>
                 {isToday && (
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 shrink-0" title="අද දින" />
                 )}
               </div>
 
               {isPoya ? (
-                <div className="flex items-center gap-0.5 text-[10px] text-amber-800 font-bold bg-amber-200/90 px-1 py-0.2 rounded-md truncate max-w-full">
+                <div className="flex items-center gap-0.5 text-[9px] sm:text-[10px] text-amber-800 font-bold bg-amber-200/90 px-1 py-0.2 rounded truncate max-w-full">
                   <span>🌕</span>
                   <span className="hidden sm:inline truncate">{poyaInfo?.poyaMonth}</span>
                 </div>
@@ -258,10 +258,10 @@ export default function InteractiveBuddhistCalendar({
               {selectedPoyaInfo.significance}
             </div>
 
-            <div className="flex flex-wrap items-center gap-2 pt-1">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 pt-1">
               <Link
                 href="/calendar"
-                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-semibold text-white bg-[#92400e] hover:bg-[#712c00] transition-colors shadow-xs"
+                className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl text-xs font-semibold text-white bg-[#92400e] hover:bg-[#712c00] transition-colors shadow-xs text-center"
               >
                 <span>පෝදා කාලසටහන බලන්න</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -269,7 +269,7 @@ export default function InteractiveBuddhistCalendar({
               {onOpenDanaBooking && (
                 <button
                   onClick={() => onOpenDanaBooking(selectedPoyaInfo.name)}
-                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-semibold text-[#14532d] bg-emerald-100 hover:bg-emerald-200 border border-emerald-300 transition-colors"
+                  className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl text-xs font-semibold text-[#14532d] bg-emerald-100 hover:bg-emerald-200 border border-emerald-300 transition-colors cursor-pointer text-center"
                 >
                   <Heart className="w-3.5 h-3.5 fill-current text-emerald-600" />
                   <span>දානමය දායකත්වය</span>
@@ -278,11 +278,11 @@ export default function InteractiveBuddhistCalendar({
             </div>
           </div>
         ) : (
-          <div className="flex items-center justify-between text-xs text-[#64748b] pt-1">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 text-xs text-[#64748b] pt-1">
             {nextPoya ? (
               <div className="flex items-center gap-1.5 text-[#92400e]">
-                <Sparkles className="w-4 h-4 text-[#d97706]" />
-                <span>
+                <Sparkles className="w-4 h-4 text-[#d97706] shrink-0" />
+                <span className="leading-snug">
                   මීළඟ පෝය: <strong>{nextPoya.name}</strong> ({nextPoya.year} {SINHALA_MONTHS[nextPoya.month - 1]} {nextPoya.day})
                 </span>
               </div>
@@ -291,7 +291,7 @@ export default function InteractiveBuddhistCalendar({
             )}
             <Link
               href="/calendar"
-              className="text-xs font-semibold text-[#92400e] hover:underline"
+              className="text-xs font-semibold text-[#92400e] hover:underline shrink-0"
             >
               වාර්ෂික කාලසටහන →
             </Link>

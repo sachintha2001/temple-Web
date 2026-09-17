@@ -74,11 +74,11 @@ export default function ResponsiveVideoModal({
         </div>
 
         {/* Video Footer Info */}
-        <div className="px-4 py-2.5 bg-[#0d1624] text-slate-300 text-xs flex items-center justify-between">
-          <span className="text-emerald-400 font-medium">
+        <div className="px-4 py-2.5 bg-[#0d1624] text-slate-300 text-xs flex flex-col sm:flex-row items-center justify-between gap-1 text-center sm:text-left">
+          <span className="text-emerald-400 font-medium text-[11px] sm:text-xs">
             නිර්මල බුදු දහම • කපුගම සුමනවංශ සෙනසුන
           </span>
-          <span className="text-slate-400 text-[11px]">
+          <span className="text-slate-400 text-[10px] sm:text-[11px]">
             Esc ඔබා හෝ X ක්ලික් කර වසන්න
           </span>
         </div>

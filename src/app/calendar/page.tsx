@@ -173,10 +173,10 @@ export default function CalendarPage() {
           සෑම පුර පසළොස්වක පොහෝ දිනකම බෙලිඅත්ත මල්ගහ කොරටුව කපුගම සුමනවංශ නා හිමි සෙනසුන් භූමියේදී පැවැත්වෙන පින්බර නිවන් මග ප්‍රතිපත්ති පූජා වැඩසටහන් මාලාව.
         </p>
 
-        <div className="pt-2 flex justify-center gap-3">
+        <div className="pt-2 flex justify-center">
           <button
             onClick={() => handleOpenDanaBooking("පෝදා සීල දානමය දායකත්වය")}
-            className="px-6 py-2.5 rounded-full text-xs sm:text-sm font-semibold text-white bg-[#92400e] hover:bg-[#712c00] transition-colors shadow-md flex items-center gap-2 cursor-pointer"
+            className="w-full sm:w-auto px-6 py-3 rounded-full text-xs sm:text-sm font-semibold text-white bg-[#92400e] hover:bg-[#712c00] transition-colors shadow-md flex items-center justify-center gap-2 cursor-pointer text-center"
           >
             <Heart className="w-4 h-4 fill-current text-amber-200" />
             <span>පෝදා දානමය දායකත්වය වෙන්කරවා ගන්න</span>
@@ -185,7 +185,7 @@ export default function CalendarPage() {
       </div>
 
       {/* 2. DAILY 12-HOUR TIMETABLE (MONTHLY EDITABLE) */}
-      <div className="bg-[#f8f5ee] border border-[#e6dfd3] rounded-3xl p-6 sm:p-10 shadow-md">
+      <div className="bg-[#f8f5ee] border border-[#e6dfd3] rounded-3xl p-5 sm:p-10 shadow-md">
         <div className="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4 border-b border-[#e6dfd3] pb-5">
           <div>
             <div className="flex items-center gap-2 mb-1">
@@ -207,16 +207,16 @@ export default function CalendarPage() {
             )}
           </div>
 
-          <div className="flex items-center gap-2 sm:self-start md:self-center">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 w-full md:w-auto">
             <button
               onClick={() => setScheduleModalOpen(true)}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold text-[#92400e] bg-amber-100 hover:bg-amber-200 border border-amber-300 transition-all shadow-sm active:scale-95 cursor-pointer"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold text-[#92400e] bg-amber-100 hover:bg-amber-200 border border-amber-300 transition-all shadow-sm active:scale-95 cursor-pointer text-center"
               title="පරිපාලක PIN අංකය මඟින් මාසික කාලසටහන සංස්කරණය කරන්න"
             >
               <ShieldCheck className="w-4 h-4 text-[#92400e]" />
               <span>කාලසටහන සංස්කරණය (Admin Edit)</span>
             </button>
-            <span className="hidden sm:inline-block text-xs text-[#64748b] bg-white px-3 py-2 rounded-xl border border-[#e6dfd3]">
+            <span className="hidden sm:inline-block text-xs text-[#64748b] bg-white px-3 py-2 rounded-xl border border-[#e6dfd3] text-center">
               උදෑසන 6.00 සිට සවස 5.30 දක්වා
             </span>
           </div>
@@ -339,11 +339,11 @@ export default function CalendarPage() {
                 )}
               </div>
 
-              <div className="mt-5 pt-3 border-t border-[#e6dfd3] flex items-center justify-between">
+              <div className="mt-5 pt-3 border-t border-[#e6dfd3] flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
                 <span className="text-xs text-[#64748b]">පූර්ණ දින ශීල වැඩසටහන</span>
                 <button
                   onClick={() => handleOpenDanaBooking(`${poya.name} - දානමය දායකත්වය`)}
-                  className={`text-xs font-semibold px-3 py-1.5 rounded-lg transition-colors ${
+                  className={`w-full sm:w-auto text-center text-xs font-semibold px-3 py-2 rounded-lg transition-colors cursor-pointer ${
                     poya.status === "available"
                       ? "bg-[#14532d] hover:bg-[#0a3019] text-white shadow-sm"
                       : "bg-[#f1ece1] text-[#475569] hover:text-[#1e293b]"

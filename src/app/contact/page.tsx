@@ -53,7 +53,7 @@ export default function ContactPage() {
       <div className="text-center max-w-3xl mx-auto space-y-4">
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#ffc2a5]/40 text-[#92400e] text-xs font-semibold">
           <ShieldCheck className="w-3.5 h-3.5 text-[#d97706]" />
-          <span>ශ්‍රී කල්‍යාණී යෝගාශ්‍රම සංස්ථානුබද්ධ ආරණ්‍ය සේනාසනය</span>
+          <span>පූජ්‍ය දික්කුඹුරේ සුභූති හිමි • ආරණ්‍ය සේනාසනය</span>
         </div>
 
         <h1 className="font-serif-monastic text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1e293b] leading-tight">
@@ -70,7 +70,7 @@ export default function ContactPage() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           {/* Portrait with outer halo */}
           <div className="lg:col-span-4 flex justify-center">
-            <div className="relative w-48 h-48 sm:w-60 sm:h-60 rounded-3xl overflow-hidden border-4 border-[#d97706] shadow-xl p-1 bg-white">
+            <div className="relative w-44 h-44 sm:w-60 sm:h-60 rounded-3xl overflow-hidden border-4 border-[#d97706] shadow-xl p-1 bg-white">
               <Image
                 src="/images/logo.png"
                 alt="පූජ්‍ය දික්කුඹුරේ සුභූති ස්වාමීන් වහන්සේ"
@@ -88,8 +88,8 @@ export default function ContactPage() {
             <h2 className="font-serif-monastic text-2xl sm:text-3xl font-bold text-[#1e293b]">
               අතිපූජ්‍ය දික්කුඹුරේ සුභූති ස්වාමීන් වහන්සේ
             </h2>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#14532d]/10 text-[#14532d] text-xs font-semibold">
-              <Sparkles className="w-3.5 h-3.5" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#14532d]/10 text-[#14532d] text-xs font-semibold text-left">
+              <Sparkles className="w-3.5 h-3.5 shrink-0" />
               <span>ආරණ්‍යවාසී ප්‍රධාන කම්මට්ඨානාචාර්ය • විදර්ශනා හා සතිපට්ඨාන භාවනා ගුරුදේව</span>
             </div>
 
@@ -97,17 +97,17 @@ export default function ContactPage() {
               සම්බුදු දේශනාවෙහි නිරවුල් ප්‍රායෝගික හරය සැදැහැවත් ජනතාව වෙත දේශනා කරමින්, නාමරූප විදර්ශනාව හා සතිපට්ඨාන භාවනා ක්‍රමය තුළින් චිත්ත සමාධිය වඩාගැනීමට උපදෙස් ලබාදෙන පින්බර සඟ පියවරුන් වහන්සේ නමකි.
             </p>
 
-            <div className="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-4">
+            <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-3 sm:gap-4">
               <a
                 href="tel:0701174907"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#92400e] hover:bg-[#712c00] text-white text-xs sm:text-sm font-semibold transition-colors shadow-sm"
+                className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-[#92400e] hover:bg-[#712c00] text-white text-xs sm:text-sm font-semibold transition-colors shadow-sm text-center"
               >
                 <Phone className="w-4 h-4" />
                 <span>සෘජු ඇමතුම්: 070 117 4907</span>
               </a>
               <button
                 onClick={() => setDanaModalOpen(true)}
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white hover:bg-[#f1ece1] border border-[#e6dfd3] text-[#14532d] text-xs sm:text-sm font-semibold transition-colors"
+                className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-white hover:bg-[#f1ece1] border border-[#e6dfd3] text-[#14532d] text-xs sm:text-sm font-semibold transition-colors text-center"
               >
                 <Heart className="w-4 h-4 fill-current text-[#14532d]" />
                 <span>දානමය දායකත්වයක් වෙන්කරන්න</span>
@@ -349,7 +349,7 @@ export default function ContactPage() {
                 <div className="pt-2 flex justify-end">
                   <button
                     type="submit"
-                    className="px-5 py-2.5 rounded-xl font-semibold text-white bg-[#92400e] hover:bg-[#712c00] transition-colors shadow-sm text-xs sm:text-sm flex items-center gap-2"
+                    className="w-full sm:w-auto justify-center px-5 py-2.5 rounded-xl font-semibold text-white bg-[#92400e] hover:bg-[#712c00] transition-colors shadow-sm text-xs sm:text-sm flex items-center gap-2 cursor-pointer text-center"
                   >
                     <Send className="w-4 h-4" />
                     <span>පණිවිඩය යොමු කරන්න</span>

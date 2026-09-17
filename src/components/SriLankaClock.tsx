@@ -117,10 +117,10 @@ export default function SriLankaClock({ compact = false, onOpenCalendar }: SriLa
   }
 
   return (
-    <div className="flex flex-wrap items-center justify-between gap-2.5 px-3 sm:px-4 py-1.5 bg-[#fdfbf7] border-b border-[#e6dfd3]/90 text-xs text-[#475569]">
+    <div className="flex items-center justify-between gap-2 px-2.5 sm:px-4 py-1.5 bg-[#fdfbf7] border-b border-[#e6dfd3]/90 text-xs text-[#475569]">
       {/* Left: Live Sri Lanka Digital Clock */}
-      <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
-        <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[#14532d]/10 border border-[#14532d]/25 text-[#14532d]">
+      <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+        <div className="flex items-center gap-1.5 px-2 sm:px-2.5 py-1 rounded-md bg-[#14532d]/10 border border-[#14532d]/25 text-[#14532d]">
           <span className="relative flex h-2 w-2">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
             <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-600" />
@@ -148,15 +148,16 @@ export default function SriLankaClock({ compact = false, onOpenCalendar }: SriLa
       </div>
 
       {/* Right: Quick Calendar Link & Poya Prompt */}
-      <div className="flex items-center gap-2 sm:gap-3 ml-auto">
+      <div className="flex items-center gap-2 sm:gap-3 ml-auto shrink-0">
         {onOpenCalendar && (
           <button
             onClick={onOpenCalendar}
-            className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-amber-100 hover:bg-amber-200 text-[#92400e] border border-amber-300/80 font-semibold text-[11px] sm:text-xs transition-all shadow-xs active:scale-95 cursor-pointer"
+            className="inline-flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3 py-1 rounded-md bg-amber-100 hover:bg-amber-200 text-[#92400e] border border-amber-300/80 font-semibold text-[11px] sm:text-xs transition-all shadow-xs active:scale-95 cursor-pointer"
             title="බෞද්ධ පෝදා දිනදර්ශනය විවෘත කරන්න"
           >
             <CalendarIcon className="w-3.5 h-3.5 text-[#92400e]" />
-            <span>දිනදර්ශනය (Calendar)</span>
+            <span className="sm:hidden">දිනදර්ශනය</span>
+            <span className="hidden sm:inline">දිනදර්ශනය (Calendar)</span>
           </button>
         )}
       </div>

@@ -122,32 +122,34 @@ export default function MediaClient({ channel, videos }: MediaClientProps) {
           </div>
 
           {/* Stats & Subscribe CTA */}
-          <div className="flex flex-wrap items-center justify-center gap-6 bg-[#0c1420]/80 border border-slate-700/60 p-4 rounded-2xl">
-            <div className="text-center">
-              <span className="block font-serif-monastic text-xl font-bold text-amber-400">
-                {channel.subscriberCount}
-              </span>
-              <span className="text-[11px] text-slate-400">දායක සභිකයින්</span>
-            </div>
-            <div className="w-px h-8 bg-slate-700" />
-            <div className="text-center">
-              <span className="block font-serif-monastic text-xl font-bold text-amber-400">
-                {channel.videoCount}
-              </span>
-              <span className="text-[11px] text-slate-400">දේශනා වීඩියෝ</span>
-            </div>
-            <div className="w-px h-8 bg-slate-700" />
-            <div className="text-center">
-              <span className="block font-serif-monastic text-xl font-bold text-amber-400">
-                {channel.viewCount}
-              </span>
-              <span className="text-[11px] text-slate-400">නැරඹුම් වාර</span>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 bg-[#0c1420]/80 border border-slate-700/60 p-4 rounded-2xl w-full md:w-auto">
+            <div className="flex items-center justify-center gap-3 sm:gap-6">
+              <div className="text-center">
+                <span className="block font-serif-monastic text-lg sm:text-xl font-bold text-amber-400">
+                  {channel.subscriberCount}
+                </span>
+                <span className="text-[10px] sm:text-[11px] text-slate-400">දායක සභිකයින්</span>
+              </div>
+              <div className="w-px h-8 bg-slate-700" />
+              <div className="text-center">
+                <span className="block font-serif-monastic text-lg sm:text-xl font-bold text-amber-400">
+                  {channel.videoCount}
+                </span>
+                <span className="text-[10px] sm:text-[11px] text-slate-400">දේශනා වීඩියෝ</span>
+              </div>
+              <div className="w-px h-8 bg-slate-700" />
+              <div className="text-center">
+                <span className="block font-serif-monastic text-lg sm:text-xl font-bold text-amber-400">
+                  {channel.viewCount}
+                </span>
+                <span className="text-[10px] sm:text-[11px] text-slate-400">නැරඹුම් වාර</span>
+              </div>
             </div>
             <a
               href="https://www.youtube.com/@nirmalabududahama"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-5 py-2.5 rounded-full bg-red-600 hover:bg-red-700 text-white text-xs font-semibold flex items-center gap-2 shadow-lg transition-all active:scale-95"
+              className="w-full sm:w-auto justify-center px-5 py-2.5 rounded-full bg-red-600 hover:bg-red-700 text-white text-xs font-semibold flex items-center gap-2 shadow-lg transition-all active:scale-95 text-center"
             >
               <YoutubeIcon className="w-4 h-4" />
               <span>නාලිකාවට එක්වන්න (Subscribe)</span>
@@ -188,12 +190,12 @@ export default function MediaClient({ channel, videos }: MediaClientProps) {
         </div>
 
         {/* Category Pills */}
-        <div className="flex flex-wrap items-center gap-2">
+        <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none flex-nowrap sm:flex-wrap">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setSelectedCategory(cat)}
-              className={`px-4 py-2 rounded-full text-xs font-semibold transition-all ${
+              className={`px-4 py-2 rounded-full text-xs font-semibold transition-all shrink-0 ${
                 selectedCategory === cat
                   ? "bg-[#92400e] text-white shadow-sm"
                   : "bg-[#f8f5ee] text-[#334155] hover:bg-[#f1ece1] border border-[#e6dfd3]"

@@ -77,24 +77,24 @@ export default function HomeClient({ channel, videos }: HomeClientProps) {
           {/* Left Column: Monastery Details & CTAs */}
           <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
             {/* Sacred Location Pill */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#ffc2a5]/40 border border-[#92400e]/30 text-[#92400e] text-xs font-semibold tracking-wide">
-              <Sparkles className="w-3.5 h-3.5 text-[#d97706]" />
-              <span>අරණ්‍ය සේනාසන පුණ්‍ය භූමිය • මල්ගහ කොරටුව, සිටිනමලුව, බෙලිඅත්ත</span>
+            <div className="inline-flex items-center gap-2 px-3 sm:px-3.5 py-1.5 rounded-full bg-[#ffc2a5]/40 border border-[#92400e]/30 text-[#92400e] text-[11px] sm:text-xs font-semibold tracking-wide max-w-full">
+              <Sparkles className="w-3.5 h-3.5 text-[#d97706] shrink-0" />
+              <span className="truncate sm:whitespace-normal">අරණ්‍ය සේනාසන පුණ්‍ය භූමිය • මල්ගහ කොරටුව, සිටිනමලුව, බෙලිඅත්ත</span>
             </div>
 
             {/* Main Headline */}
-            <h1 className="font-serif-monastic text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1e293b] leading-tight tracking-tight">
+            <h1 className="font-serif-monastic text-2xl sm:text-4xl lg:text-5xl font-bold text-[#1e293b] leading-tight tracking-tight">
               ශාන්ත සිතින් <span className="text-[#92400e]">නිර්මල බුදු දහම</span> ප්‍රගුණ කරන ආරණ්‍ය සෙනසුන
             </h1>
 
             {/* Subtitle */}
-            <p className="text-base sm:text-lg text-[#475569] leading-relaxed max-w-2xl mx-auto lg:mx-0">
+            <p className="text-sm sm:text-base text-[#475569] leading-relaxed max-w-2xl mx-auto lg:mx-0">
               කපුගම සුමනවංශ නා හිමි සෙනසුන, මල්ගහ කොරටුව, සිටිනමලුව, බෙලිඅත්ත. චිත්ත සමාධියත්, ධර්මාවබෝධයත් සොයා වඩින සැදැහැවතුන්ට සෙවණ සදන වනගත ආරණ්‍යය.
             </p>
 
             {/* Chief Monk Citation Card */}
-            <div className="bg-[#f8f5ee]/90 border border-[#e6dfd3] p-4 rounded-2xl flex items-center gap-4 max-w-xl mx-auto lg:mx-0 shadow-sm">
-              <div className="relative w-14 h-14 rounded-full overflow-hidden border-2 border-[#d97706] p-0.5 bg-white shrink-0">
+            <div className="bg-[#f8f5ee]/90 border border-[#e6dfd3] p-3.5 sm:p-4 rounded-2xl flex items-center gap-3.5 sm:gap-4 max-w-xl mx-auto lg:mx-0 shadow-sm text-left">
+              <div className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-full overflow-hidden border-2 border-[#d97706] p-0.5 bg-white shrink-0">
                 <Image
                   src="/images/logo.png"
                   alt="පූජ්‍ය දික්කුඹුරේ සුභූති ස්වාමීන් වහන්සේ"
@@ -102,24 +102,24 @@ export default function HomeClient({ channel, videos }: HomeClientProps) {
                   className="object-cover rounded-full"
                 />
               </div>
-              <div className="text-left">
-                <span className="text-[11px] font-semibold text-[#92400e] uppercase tracking-wider block">
+              <div className="min-w-0">
+                <span className="text-[10px] sm:text-[11px] font-semibold text-[#92400e] uppercase tracking-wider block">
                   ප්‍රධාන අනුශාසක හිමිපාණන්
                 </span>
-                <p className="font-serif-monastic font-semibold text-sm sm:text-base text-[#1e293b]">
+                <p className="font-serif-monastic font-semibold text-sm sm:text-base text-[#1e293b] truncate">
                   පූජ්‍ය දික්කුඹුරේ සුභූති ස්වාමීන් වහන්සේ
                 </p>
-                <p className="text-xs text-[#64748b]">
+                <p className="text-xs text-[#64748b] truncate">
                   විදර්ශනා හා සතිපට්ඨාන භාවනා ගුරුදේව
                 </p>
               </div>
             </div>
 
             {/* Action Buttons */}
-            <div className="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-4">
+            <div className="pt-2 flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center justify-center lg:justify-start gap-3 sm:gap-4">
               <Link
                 href="/media"
-                className="px-6 py-3 rounded-full text-sm font-semibold text-white bg-[#92400e] hover:bg-[#712c00] transition-all duration-200 shadow-md hover:shadow-lg flex items-center gap-2 group"
+                className="w-full sm:w-auto px-6 py-3 rounded-full text-sm font-semibold text-white bg-[#92400e] hover:bg-[#712c00] transition-all duration-200 shadow-md hover:shadow-lg flex items-center justify-center gap-2 group text-center"
               >
                 <Play className="w-4 h-4 fill-current text-amber-200 group-hover:scale-110 transition-transform" />
                 <span>ධර්ම දේශනා ශ්‍රවණය කරන්න</span>
@@ -127,7 +127,7 @@ export default function HomeClient({ channel, videos }: HomeClientProps) {
 
               <button
                 onClick={() => setDanaModalOpen(true)}
-                className="px-6 py-3 rounded-full text-sm font-semibold text-[#14532d] bg-[#b1f2be]/40 hover:bg-[#b1f2be]/70 border border-[#14532d]/30 transition-all duration-200 flex items-center gap-2"
+                className="w-full sm:w-auto px-6 py-3 rounded-full text-sm font-semibold text-[#14532d] bg-[#b1f2be]/40 hover:bg-[#b1f2be]/70 border border-[#14532d]/30 transition-all duration-200 flex items-center justify-center gap-2 text-center"
               >
                 <Heart className="w-4 h-4 fill-current text-[#14532d]" />
                 <span>දානමය දායකත්වයන්</span>
@@ -135,7 +135,7 @@ export default function HomeClient({ channel, videos }: HomeClientProps) {
 
               <Link
                 href="/contact"
-                className="px-5 py-3 rounded-full text-sm font-medium text-[#475569] hover:text-[#1e293b] hover:bg-white/80 transition-colors flex items-center gap-1.5"
+                className="w-full sm:w-auto px-5 py-3 rounded-full text-sm font-medium text-[#475569] hover:text-[#1e293b] hover:bg-white/80 transition-colors flex items-center justify-center gap-1.5 text-center"
               >
                 <Compass className="w-4 h-4" />
                 <span>සේනාසනයට පිවිසෙන්න</span>
@@ -217,10 +217,10 @@ export default function HomeClient({ channel, videos }: HomeClientProps) {
         </div>
 
         {/* Channel Banner Card */}
-        <div className="bg-gradient-to-r from-[#14532d] to-[#0a3019] rounded-2xl p-6 text-white mb-8 shadow-lg border border-emerald-800">
+        <div className="bg-gradient-to-r from-[#14532d] to-[#0a3019] rounded-2xl p-5 sm:p-6 text-white mb-8 shadow-lg border border-emerald-800">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
             <div className="flex items-center gap-4 text-center sm:text-left">
-              <div className="relative w-16 h-16 rounded-full overflow-hidden border-2 border-amber-400 shrink-0 bg-white shadow-md">
+              <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-full overflow-hidden border-2 border-amber-400 shrink-0 bg-white shadow-md">
                 <Image
                   src={channel.avatarUrl}
                   alt={channel.title}
@@ -230,10 +230,10 @@ export default function HomeClient({ channel, videos }: HomeClientProps) {
               </div>
               <div>
                 <div className="flex items-center justify-center sm:justify-start gap-2">
-                  <h3 className="font-serif-monastic font-semibold text-lg sm:text-xl text-amber-200">
+                  <h3 className="font-serif-monastic font-semibold text-base sm:text-xl text-amber-200">
                     {channel.title}
                   </h3>
-                  <CheckCircle2 className="w-4 h-4 text-amber-400" />
+                  <CheckCircle2 className="w-4 h-4 text-amber-400 shrink-0" />
                 </div>
                 <p className="text-xs text-emerald-200 mt-0.5">
                   නිල ධර්ම ප්‍රචාරක අංශය • {channel.customUrl}
@@ -242,26 +242,27 @@ export default function HomeClient({ channel, videos }: HomeClientProps) {
             </div>
 
             {/* Quick stats pills */}
-            <div className="flex items-center gap-4 sm:gap-6 text-center">
-              <div>
-                <span className="block font-serif-monastic text-xl font-bold text-amber-300">
-                  {channel.subscriberCount}
-                </span>
-                <span className="text-[11px] text-emerald-200">දායක සභිකයින්</span>
+            <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 text-center w-full sm:w-auto">
+              <div className="flex items-center justify-center gap-4 sm:gap-6">
+                <div>
+                  <span className="block font-serif-monastic text-xl font-bold text-amber-300">
+                    {channel.subscriberCount}
+                  </span>
+                  <span className="text-[11px] text-emerald-200">දායක සභිකයින්</span>
+                </div>
+                <div className="w-px h-8 bg-emerald-700/60" />
+                <div>
+                  <span className="block font-serif-monastic text-xl font-bold text-amber-300">
+                    {channel.videoCount}
+                  </span>
+                  <span className="text-[11px] text-emerald-200">දේශනා වීඩියෝ</span>
+                </div>
               </div>
-              <div className="w-px h-8 bg-emerald-700/60" />
-              <div>
-                <span className="block font-serif-monastic text-xl font-bold text-amber-300">
-                  {channel.videoCount}
-                </span>
-                <span className="text-[11px] text-emerald-200">දේශනා වීඩියෝ</span>
-              </div>
-              <div className="w-px h-8 bg-emerald-700/60" />
               <a
                 href="https://www.youtube.com/@nirmalabududahama"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-4 py-2 rounded-full bg-red-600 hover:bg-red-700 text-white text-xs font-semibold transition-all shadow hover:shadow-md flex items-center gap-1.5"
+                className="w-full sm:w-auto justify-center px-5 py-2.5 rounded-full bg-red-600 hover:bg-red-700 text-white text-xs font-semibold transition-all shadow hover:shadow-md flex items-center gap-1.5"
               >
                 <span>Subscribe</span>
                 <ExternalLink className="w-3.5 h-3.5" />
@@ -298,9 +299,10 @@ export default function HomeClient({ channel, videos }: HomeClientProps) {
                 16 : 9 Full HD
               </span>
             </div>
-            <div className="p-5">
+
+            <div className="p-4 sm:p-5">
               <span className="text-xs font-semibold text-[#92400e]">නවතම සදහම් දේශනාව</span>
-              <h3 className="font-serif-monastic font-semibold text-lg text-[#1e293b] mt-1 line-clamp-2">
+              <h3 className="font-serif-monastic font-semibold text-base sm:text-lg text-[#1e293b] mt-1 line-clamp-2">
                 {featuredVideo.title}
               </h3>
               <p className="text-xs text-[#64748b] mt-2 line-clamp-2">
@@ -336,9 +338,9 @@ export default function HomeClient({ channel, videos }: HomeClientProps) {
                     title: vid.title,
                   })
                 }
-                className="bg-[#fdfbf7] hover:bg-[#f8f5ee] border border-[#e6dfd3] rounded-xl p-3 flex gap-3.5 items-center cursor-pointer transition-all duration-200 shadow-sm hover:shadow group"
+                className="bg-[#fdfbf7] hover:bg-[#f8f5ee] border border-[#e6dfd3] rounded-xl p-3 flex gap-3 sm:gap-3.5 items-center cursor-pointer transition-all duration-200 shadow-sm hover:shadow group"
               >
-                <div className="relative w-32 h-20 rounded-lg overflow-hidden shrink-0 bg-slate-900">
+                <div className="relative w-24 sm:w-32 h-16 sm:h-20 rounded-lg overflow-hidden shrink-0 bg-slate-900">
                   <Image
                     src={vid.thumbnailUrl}
                     alt={vid.title}
@@ -351,7 +353,7 @@ export default function HomeClient({ channel, videos }: HomeClientProps) {
                     </div>
                   </div>
                 </div>
-                <div className="flex-1 overflow-hidden">
+                <div className="flex-1 min-w-0 overflow-hidden">
                   <h4 className="font-serif-monastic text-xs sm:text-sm font-semibold text-[#1e293b] line-clamp-2 group-hover:text-[#92400e] transition-colors">
                     {vid.title}
                   </h4>
@@ -375,7 +377,7 @@ export default function HomeClient({ channel, videos }: HomeClientProps) {
 
       {/* 3. UPCOMING POYA DAY PROGRAM SECTION */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="bg-[#f8f5ee] border border-[#e6dfd3] rounded-3xl p-6 sm:p-10 shadow-lg relative overflow-hidden">
+        <div className="bg-[#f8f5ee] border border-[#e6dfd3] rounded-3xl p-5 sm:p-10 shadow-lg relative overflow-hidden">
           {/* Subtle golden moon decoration */}
           <div className="absolute -top-10 -right-10 w-48 h-48 rounded-full bg-amber-100/60 blur-2xl pointer-events-none" />
 
@@ -401,44 +403,44 @@ export default function HomeClient({ channel, videos }: HomeClientProps) {
                   පිංකම ආරම්භ වීමට තවත්:
                 </span>
                 <div className="grid grid-cols-4 gap-2 sm:gap-4 max-w-md">
-                  <div className="bg-[#fdfbf7] border border-[#e6dfd3] p-3 rounded-xl text-center shadow-sm">
-                    <span className="font-serif-monastic text-xl sm:text-2xl font-bold text-[#92400e] block">
+                  <div className="bg-[#fdfbf7] border border-[#e6dfd3] p-2 sm:p-3 rounded-xl text-center shadow-sm">
+                    <span className="font-serif-monastic text-lg sm:text-2xl font-bold text-[#92400e] block">
                       {String(timeLeft.days).padStart(2, "0")}
                     </span>
-                    <span className="text-[10px] text-[#64748b]">දින (Days)</span>
+                    <span className="text-[9px] sm:text-[10px] text-[#64748b]">දින (Days)</span>
                   </div>
-                  <div className="bg-[#fdfbf7] border border-[#e6dfd3] p-3 rounded-xl text-center shadow-sm">
-                    <span className="font-serif-monastic text-xl sm:text-2xl font-bold text-[#92400e] block">
+                  <div className="bg-[#fdfbf7] border border-[#e6dfd3] p-2 sm:p-3 rounded-xl text-center shadow-sm">
+                    <span className="font-serif-monastic text-lg sm:text-2xl font-bold text-[#92400e] block">
                       {String(timeLeft.hours).padStart(2, "0")}
                     </span>
-                    <span className="text-[10px] text-[#64748b]">පැය (Hours)</span>
+                    <span className="text-[9px] sm:text-[10px] text-[#64748b]">පැය (Hours)</span>
                   </div>
-                  <div className="bg-[#fdfbf7] border border-[#e6dfd3] p-3 rounded-xl text-center shadow-sm">
-                    <span className="font-serif-monastic text-xl sm:text-2xl font-bold text-[#92400e] block">
+                  <div className="bg-[#fdfbf7] border border-[#e6dfd3] p-2 sm:p-3 rounded-xl text-center shadow-sm">
+                    <span className="font-serif-monastic text-lg sm:text-2xl font-bold text-[#92400e] block">
                       {String(timeLeft.minutes).padStart(2, "0")}
                     </span>
-                    <span className="text-[10px] text-[#64748b]">මිනිත්තු (Mins)</span>
+                    <span className="text-[9px] sm:text-[10px] text-[#64748b]">මිනිත්තු (Mins)</span>
                   </div>
-                  <div className="bg-[#fdfbf7] border border-[#e6dfd3] p-3 rounded-xl text-center shadow-sm">
-                    <span className="font-serif-monastic text-xl sm:text-2xl font-bold text-[#92400e] block">
+                  <div className="bg-[#fdfbf7] border border-[#e6dfd3] p-2 sm:p-3 rounded-xl text-center shadow-sm">
+                    <span className="font-serif-monastic text-lg sm:text-2xl font-bold text-[#92400e] block">
                       {String(timeLeft.seconds).padStart(2, "0")}
                     </span>
-                    <span className="text-[10px] text-[#64748b]">තත්පර (Secs)</span>
+                    <span className="text-[9px] sm:text-[10px] text-[#64748b]">තත්පර (Secs)</span>
                   </div>
                 </div>
               </div>
 
-              <div className="pt-4 flex flex-wrap items-center gap-3">
+              <div className="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
                 <button
                   onClick={() => setDanaModalOpen(true)}
-                  className="px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold text-white bg-[#92400e] hover:bg-[#712c00] transition-colors shadow-sm flex items-center gap-2"
+                  className="w-full sm:w-auto justify-center px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold text-white bg-[#92400e] hover:bg-[#712c00] transition-colors shadow-sm flex items-center gap-2"
                 >
                   <Heart className="w-4 h-4 fill-current text-amber-200" />
                   <span>සීල දානය සඳහා දායක වන්න</span>
                 </button>
                 <Link
                   href="/calendar"
-                  className="px-5 py-2.5 rounded-full text-xs sm:text-sm font-medium text-[#14532d] bg-white hover:bg-[#f1ece1] border border-[#e6dfd3] transition-colors"
+                  className="w-full sm:w-auto justify-center text-center px-5 py-2.5 rounded-full text-xs sm:text-sm font-medium text-[#14532d] bg-white hover:bg-[#f1ece1] border border-[#e6dfd3] transition-colors"
                 >
                   සම්පූර්ණ කාලසටහන බලන්න
                 </Link>

@@ -148,7 +148,7 @@ export default function Footer() {
           <div className="flex items-center gap-4">
             <span className="inline-flex items-center gap-1.5 text-amber-300">
               <ShieldCheck className="w-3.5 h-3.5" />
-              <span>ශ්‍රී කල්‍යාණී යෝගාශ්‍රම සංස්ථානුබද්ධයි</span>
+              <span>පූජ්‍ය දික්කුඹුරේ සුභූති හිමි</span>
             </span>
           </div>
         </div>

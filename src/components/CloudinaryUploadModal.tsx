@@ -162,15 +162,15 @@ export default function CloudinaryUploadModal({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-sm animate-in fade-in duration-200">
-      <div className="relative w-full max-w-lg bg-[#fdfbf7] rounded-2xl shadow-2xl border border-[#e6dfd3] overflow-hidden">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/75 backdrop-blur-sm animate-in fade-in duration-200">
+      <div className="relative w-full max-w-lg bg-[#fdfbf7] rounded-2xl shadow-2xl border border-[#e6dfd3] overflow-hidden max-h-[92vh] flex flex-col">
         {/* Clean Header with NO technical credentials */}
-        <div className="bg-[#14532d] text-white px-6 py-4 flex items-center justify-between">
+        <div className="bg-[#14532d] text-white px-4 sm:px-6 py-4 flex items-center justify-between shrink-0">
           <div className="flex items-center gap-2">
             {isAuthenticated ? (
-              <Upload className="w-5 h-5 text-amber-300" />
+              <Upload className="w-5 h-5 text-amber-300 shrink-0" />
             ) : (
-              <Lock className="w-5 h-5 text-amber-300" />
+              <Lock className="w-5 h-5 text-amber-300 shrink-0" />
             )}
             <div>
               <h3 className="font-serif-monastic text-base font-semibold">
@@ -185,7 +185,7 @@ export default function CloudinaryUploadModal({
           </div>
           <button
             onClick={onClose}
-            className="text-emerald-200 hover:text-white p-1 rounded-full hover:bg-white/10 transition-colors"
+            className="text-emerald-200 hover:text-white p-1 rounded-full hover:bg-white/10 transition-colors shrink-0 ml-2"
           >
             <X className="w-5 h-5" />
           </button>
@@ -193,7 +193,7 @@ export default function CloudinaryUploadModal({
 
         {/* STEP 1: PIN AUTHENTICATION FORM IF NOT AUTHENTICATED */}
         {!isAuthenticated ? (
-          <form onSubmit={handlePinSubmit} className="p-6 sm:p-8 space-y-5 text-center">
+          <form onSubmit={handlePinSubmit} className="p-6 sm:p-8 space-y-5 text-center overflow-y-auto flex-1">
             <div className="w-14 h-14 rounded-2xl bg-amber-100 border border-amber-300 text-amber-900 flex items-center justify-center mx-auto shadow-sm">
               <KeyRound className="w-7 h-7" />
             </div>
@@ -264,7 +264,7 @@ export default function CloudinaryUploadModal({
           </div>
         ) : (
           /* STEP 2: AUTHENTICATED UPLOAD FORM */
-          <form onSubmit={handleUpload} className="p-6 space-y-4">
+          <form onSubmit={handleUpload} className="p-4 sm:p-6 space-y-4 overflow-y-auto flex-1">
             {errorMessage && (
               <div className="p-3 bg-amber-50 border border-amber-200 rounded-xl text-xs text-amber-800 flex items-center gap-2">
                 <AlertCircle className="w-4 h-4 shrink-0" />
@@ -401,19 +401,19 @@ export default function CloudinaryUploadModal({
             </div>
 
             {/* Action buttons */}
-            <div className="pt-2 flex items-center justify-end gap-2 border-t border-[#e6dfd3]">
+            <div className="pt-3 flex flex-col-reverse sm:flex-row items-stretch sm:items-center justify-end gap-2 border-t border-[#e6dfd3]">
               <button
                 type="button"
                 onClick={onClose}
                 disabled={isUploading}
-                className="px-4 py-2 text-xs font-medium text-[#475569] hover:bg-[#f1ece1] rounded-xl transition-colors"
+                className="w-full sm:w-auto px-4 py-2.5 text-xs font-medium text-[#475569] hover:bg-[#f1ece1] rounded-xl transition-colors text-center"
               >
                 අවලංගු කරන්න
               </button>
               <button
                 type="submit"
                 disabled={isUploading}
-                className="px-5 py-2 text-xs font-semibold text-white bg-[#14532d] hover:bg-[#0d3d20] disabled:opacity-60 rounded-xl shadow-sm transition-colors flex items-center gap-1.5"
+                className="w-full sm:w-auto px-5 py-2.5 text-xs font-semibold text-white bg-[#14532d] hover:bg-[#0d3d20] disabled:opacity-60 rounded-xl shadow-sm transition-colors flex items-center justify-center gap-1.5"
               >
                 {isUploading ? (
                   <>
