@@ -32,6 +32,10 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+!.env.example
+
+# raw uploaded images archive (optimized assets are in public/images/)
+imegs temple/
 
 # vercel
 .vercel
