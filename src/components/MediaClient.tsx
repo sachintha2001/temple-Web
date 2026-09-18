@@ -2,6 +2,7 @@
 
 import React, { useState, useMemo } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import {
   Search,
   Play,
@@ -13,9 +14,13 @@ import {
   Send,
   HelpCircle,
   Share2,
+  BookOpen,
+  Download,
+  FolderOpen,
 } from "lucide-react";
 import YoutubeIcon from "./YoutubeIcon";
 import { YouTubeChannelStats, YouTubeVideoItem } from "@/lib/youtube";
+import { MONASTERY_DRIVE_FOLDER_URL } from "@/lib/documents";
 import ResponsiveVideoModal from "./ResponsiveVideoModal";
 import FeaturedSuttaDiscourse from "./FeaturedSuttaDiscourse";
 
@@ -278,7 +283,43 @@ export default function MediaClient({ channel, videos }: MediaClientProps) {
         )}
       </div>
 
-      {/* 4. DHAMMA QUESTIONS & TOPICS SUBMISSION FORM */}
+      {/* 4. ACCOMPANYING DHAMMA BOOKS & PDF DOWNLOADS BANNER */}
+      <div className="relative rounded-3xl overflow-hidden bg-gradient-to-r from-[#14532d] via-[#1b432a] to-[#111c2d] text-white p-6 sm:p-8 border border-amber-600/30 shadow-lg flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="space-y-2 text-center md:text-left max-w-2xl">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 border border-amber-400/30 text-xs font-semibold">
+            <BookOpen className="w-3.5 h-3.5" />
+            <span>දේශනා ආශ්‍රිත පොත්පත් & PDF</span>
+          </div>
+          <h3 className="font-serif-monastic text-xl sm:text-2xl font-bold text-white">
+            දේශනාවලට අදාළ සූත්‍ර සන්න, පිරිත් පොත් සහ භාවනා අත්පොත්
+          </h3>
+          <p className="text-xs sm:text-sm text-emerald-100/85">
+            අතිපූජ්‍ය ස්වාමීන් වහන්සේ විසින් සම්පාදිත ගැඹුරු සදහම් පොත්පත් Google Drive හරහා ඔබගේ දුරකථනයට හෝ පරිගණකයට නොමිලේ බාගත කරගන්න.
+          </p>
+        </div>
+
+        <div className="flex flex-col sm:flex-row items-center gap-3 shrink-0">
+          <a
+            href={MONASTERY_DRIVE_FOLDER_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-5 py-2.5 rounded-full bg-amber-600 hover:bg-amber-700 text-white text-xs sm:text-sm font-semibold flex items-center gap-2 shadow-md transition-all active:scale-95"
+          >
+            <FolderOpen className="w-4 h-4" />
+            <span>Google Drive එකතුව</span>
+            <ExternalLink className="w-3.5 h-3.5" />
+          </a>
+          <Link
+            href="/publications"
+            className="px-5 py-2.5 rounded-full bg-white/15 hover:bg-white/25 text-white text-xs sm:text-sm font-semibold flex items-center gap-2 border border-white/20 transition-all"
+          >
+            <BookOpen className="w-4 h-4 text-amber-300" />
+            <span>පුස්තකාලයට පිවිසෙන්න</span>
+          </Link>
+        </div>
+      </div>
+
+      {/* 5. DHAMMA QUESTIONS & TOPICS SUBMISSION FORM */}
       <div className="bg-[#f8f5ee] border border-[#e6dfd3] rounded-3xl p-6 sm:p-10 shadow-md">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-8 space-y-2">

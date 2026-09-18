@@ -16,7 +16,7 @@ export default function AdminPinModal({
   onClose,
   onSuccess,
   title = "පරිපාලක පිවිසුම (Admin Login)",
-  description = "ඡායාරූප සංස්කරණය (Edit) හෝ මකාදැමීම (Delete) සඳහා කරුණාකර රහස්‍ය PIN අංකය ඇතුළත් කරන්න.",
+  description = "ඡායාරූප, ලේඛන සහ දිනදර්ශන කළමනාකරණය සඳහා කරුණාකර රහස්‍ය PIN අංකය ඇතුළත් කරන්න.",
 }: AdminPinModalProps) {
   const [pin, setPin] = useState("");
   const [error, setError] = useState<string | null>(null);
@@ -24,7 +24,7 @@ export default function AdminPinModal({
 
   if (!isOpen) return null;
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleLoginSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!pin.trim()) return;
 
@@ -59,6 +59,12 @@ export default function AdminPinModal({
     }
   };
 
+  const handleClose = () => {
+    setPin("");
+    setError(null);
+    onClose();
+  };
+
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/75 backdrop-blur-sm animate-in fade-in duration-200">
       <div className="relative w-full max-w-sm bg-[#fdfbf7] rounded-3xl shadow-2xl border border-[#e6dfd3] overflow-hidden">
@@ -77,7 +83,7 @@ export default function AdminPinModal({
           </div>
           <button
             type="button"
-            onClick={onClose}
+            onClick={handleClose}
             className="p-1.5 rounded-full text-[#64748b] hover:text-[#1e293b] hover:bg-[#e6dfd3]/60 transition-colors cursor-pointer"
             aria-label="වසන්න"
           >
@@ -86,7 +92,7 @@ export default function AdminPinModal({
         </div>
 
         {/* Body */}
-        <form onSubmit={handleSubmit} className="p-5 sm:p-6 space-y-4">
+        <form onSubmit={handleLoginSubmit} className="p-5 sm:p-6 space-y-4">
           <p className="text-xs text-[#475569] leading-relaxed">
             {description}
           </p>
@@ -117,7 +123,7 @@ export default function AdminPinModal({
           <div className="pt-2 flex items-center justify-end gap-2.5">
             <button
               type="button"
-              onClick={onClose}
+              onClick={handleClose}
               className="px-4 py-2.5 rounded-xl border border-[#e6dfd3] text-xs font-semibold text-[#475569] hover:bg-[#f1ece1] transition-colors cursor-pointer"
             >
               අවලංගු කරන්න

@@ -18,8 +18,16 @@ import {
   ChevronRight,
   CheckCircle2,
   Video,
+  BookOpen,
+  Download,
+  FolderOpen,
 } from "lucide-react";
 import { YouTubeChannelStats, YouTubeVideoItem } from "@/lib/youtube";
+import {
+  DocumentItem,
+  MONASTERY_DRIVE_FOLDER_URL,
+  buildGoogleDriveDownloadUrl,
+} from "@/lib/documents";
 import ResponsiveVideoModal from "./ResponsiveVideoModal";
 import DanaBookingModal from "./DanaBookingModal";
 
@@ -56,6 +64,20 @@ export default function HomeClient({ channel, videos }: HomeClientProps) {
       });
     }, 1000);
     return () => clearInterval(timer);
+  }, []);
+
+  const [latestDocs, setLatestDocs] = useState<DocumentItem[]>([]);
+
+  useEffect(() => {
+    fetch("/api/documents")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success && Array.isArray(data.documents)) {
+          const clean = data.documents.filter((d: DocumentItem) => !/^doc-[1-6]$/.test(d.id));
+          setLatestDocs(clean.slice(0, 3));
+        }
+      })
+      .catch(() => {});
   }, []);
 
   const featuredVideo = videos[0] || {
@@ -567,7 +589,104 @@ export default function HomeClient({ channel, videos }: HomeClientProps) {
         </div>
       </section>
 
-      {/* 5. VISITOR GUIDELINES & MONASTERY DECORUM */}
+      {/* 5. FEATURED DHAMMA PUBLICATIONS & GOOGLE DRIVE DOWNLOADS */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-[#14532d] via-[#1c4b2b] to-[#111c2d] text-white p-6 sm:p-10 border border-amber-600/30 shadow-xl">
+          <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 border-b border-emerald-700/60 pb-8">
+            <div className="space-y-3 max-w-2xl">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 border border-amber-400/30 text-xs font-semibold">
+                <BookOpen className="w-3.5 h-3.5" />
+                <span>දහම් පුස්තකාලය & ලේඛන</span>
+              </div>
+              <h2 className="font-serif-monastic text-2xl sm:text-3xl lg:text-4xl font-bold text-white leading-tight">
+                සදහම් පොත්පත් & <span className="text-amber-300">PDF බාගත කිරීම්</span>
+              </h2>
+              <p className="text-xs sm:text-sm text-emerald-100/85 leading-relaxed">
+                අතිපූජ්‍ය දික්කුඹුරේ සුභූති ස්වාමීන් වහන්සේගේ සදහම් ග්‍රන්ථ, සූත්‍ර විවරණ සහ භාවනා අත්පොත් විහාරස්ථානයේ නිල Google Drive එකතුව හරහා නොමිලේ බාගත කරගන්න.
+              </p>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-3 shrink-0">
+              <a
+                href={MONASTERY_DRIVE_FOLDER_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-amber-600 hover:bg-amber-700 text-white text-xs sm:text-sm font-semibold transition-all shadow-md active:scale-95"
+              >
+                <FolderOpen className="w-4 h-4" />
+                <span>Google Drive (PDF web)</span>
+                <ExternalLink className="w-3.5 h-3.5" />
+              </a>
+
+              <Link
+                href="/publications"
+                className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-white/15 hover:bg-white/25 text-white text-xs sm:text-sm font-semibold transition-all border border-white/20 backdrop-blur-sm"
+              >
+                <span>සියලු පොත්පත්</span>
+                <ArrowRight className="w-4 h-4 text-amber-300" />
+              </Link>
+            </div>
+          </div>
+
+          {/* Dynamic Real Publications or Clean Invite */}
+          {latestDocs.length > 0 ? (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 pt-8">
+              {latestDocs.map((doc) => {
+                const downloadUrl = doc.googleDriveFileId
+                  ? buildGoogleDriveDownloadUrl(doc.googleDriveFileId)
+                  : doc.downloadUrl || MONASTERY_DRIVE_FOLDER_URL;
+                return (
+                  <div
+                    key={doc.id}
+                    className="bg-white/10 backdrop-blur-md border border-white/15 rounded-2xl p-4 flex flex-col justify-between hover:bg-white/15 transition-all"
+                  >
+                    <div className="space-y-2">
+                      <div className="flex items-center justify-between gap-2 text-[10px] font-semibold text-amber-300 uppercase tracking-wider">
+                        <span>{doc.category}</span>
+                        {doc.pageCount && <span>{doc.pageCount} පිටු</span>}
+                      </div>
+                      <h3 className="font-serif-monastic font-bold text-base text-white line-clamp-2">
+                        {doc.title}
+                      </h3>
+                      <p className="text-xs text-emerald-100/80 line-clamp-2">
+                        {doc.description}
+                      </p>
+                    </div>
+                    <div className="pt-4 flex items-center justify-between">
+                      <span className="text-[11px] text-amber-200 font-mono">
+                        {doc.fileSize || "PDF"}
+                      </span>
+                      <a
+                        href={downloadUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        download
+                        className="inline-flex items-center gap-1.5 text-xs font-semibold text-amber-300 hover:underline"
+                      >
+                        <Download className="w-3.5 h-3.5" />
+                        <span>බාගත කරන්න</span>
+                      </a>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          ) : (
+            <div className="pt-6 text-center lg:text-left text-xs text-emerald-100/80 flex flex-col sm:flex-row items-center justify-between gap-3">
+              <span>* විහාරස්ථානයේ නිල Google Drive ෆෝල්ඩරය ඔස්සේ සියලුම සදහම් පොත්පත් සහ පත්‍රිකා ලබාගත හැක.</span>
+              <Link
+                href="/publications"
+                className="text-amber-300 hover:underline font-semibold flex items-center gap-1"
+              >
+                <span>දහම් පුස්තකාලයට පිවිසෙන්න</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* 6. VISITOR GUIDELINES & MONASTERY DECORUM */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="bg-[#fdfbf7] border border-[#e6dfd3] rounded-3xl p-6 sm:p-8 shadow-sm">
           <div className="text-center max-w-2xl mx-auto mb-8">

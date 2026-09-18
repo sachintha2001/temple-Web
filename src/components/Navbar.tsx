@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Menu, X, Phone, Heart, Calendar, Image as ImageIcon, Compass } from "lucide-react";
+import { Menu, X, Phone, Heart, Calendar, Image as ImageIcon, Compass, BookOpen } from "lucide-react";
 import YoutubeIcon from "./YoutubeIcon";
 import DanaBookingModal from "./DanaBookingModal";
 import SriLankaClock from "./SriLankaClock";
@@ -52,6 +52,7 @@ export default function Navbar() {
   const navLinks = [
     { name: "මුල් පිටුව", href: "/", icon: Compass },
     { name: "ධර්ම දේශනා & මාධ්‍ය", href: "/media", icon: YoutubeIcon },
+    { name: "දහම් පුස්තකාලය (PDF)", href: "/publications", icon: BookOpen },
     { name: "පොහෝ දින වැඩසටහන්", href: "/calendar", icon: Calendar },
     { name: "පිංකම් (ගැලරිය)", href: "/gallery", icon: ImageIcon },
     { name: "සේනාසන තොරතුරු & සබඳතා", href: "/contact", icon: Phone },

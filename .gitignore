@@ -37,6 +37,12 @@ yarn-error.log*
 # raw uploaded images archive (optimized assets are in public/images/)
 imegs temple/
 
+# user uploads
+/public/uploads/*
+/public/uploads/**/*
+!/public/uploads/.gitkeep
+!/public/uploads/documents/.gitkeep
+
 # vercel
 .vercel
 

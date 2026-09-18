@@ -26,7 +26,7 @@ export async function POST(req: Request) {
     const { messages } = await req.json();
 
     const result = await streamText({
-      model: groq('qwen/qwen3.8-27b'), // Using a supported model for this specific Groq key
+      model: groq('qwen/qwen3.8-27b') as any, // Using a supported model for this specific Groq key
       system: systemPrompt,
       messages,
       temperature: 0.7,

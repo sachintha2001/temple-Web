@@ -7,13 +7,13 @@ export async function POST(request: Request) {
 
     if (!file) {
       return NextResponse.json(
-        { success: false, error: "No file provided" },
+        { success: false, error: "ඡායාරූප ගොනුවක් තෝරා නොමැත." },
         { status: 400 }
       );
     }
 
     const cloudName = process.env.CLOUDINARY_CLOUD_NAME || "st3cx6wo";
-    const uploadPreset = process.env.CLOUDINARY_UPLOAD_PRESET || "ml_default";
+    const uploadPreset = process.env.CLOUDINARY_UPLOAD_PRESET || "temple_uploads";
 
     const cloudinaryFormData = new FormData();
     cloudinaryFormData.append("file", file);
@@ -29,9 +29,17 @@ export async function POST(request: Request) {
 
     if (!cloudinaryRes.ok) {
       const errText = await cloudinaryRes.text();
-      console.warn("Cloudinary upload failed via server proxy:", errText);
+      console.warn("Cloudinary upload error:", errText);
+      let errorMsg = "Cloudinary වෙත ඡායාරූපය උඩුගත කිරීම අසාර්ථක විය.";
+      try {
+        const parsed = JSON.parse(errText);
+        if (parsed?.error?.message) {
+          errorMsg = parsed.error.message;
+        }
+      } catch {}
+
       return NextResponse.json(
-        { success: false, error: "Cloudinary upload service notice" },
+        { success: false, error: errorMsg },
         { status: 502 }
       );
     }

@@ -112,26 +112,24 @@ export default function CloudinaryUploadModal({
 
     try {
       if (file) {
-        // Upload securely through server upload proxy
+        // Upload securely through server upload proxy to Cloudinary
         const formData = new FormData();
         formData.append("file", file);
 
-        try {
-          const res = await fetch("/api/gallery/upload", {
-            method: "POST",
-            body: formData,
-          });
+        const res = await fetch("/api/gallery/upload", {
+          method: "POST",
+          body: formData,
+        });
 
-          if (res.ok) {
-            const data = await res.json();
-            if (data.secure_url) {
-              finalImageUrl = data.secure_url;
-            }
-          }
-        } catch (proxyErr) {
-          console.warn("Secure upload proxy notice:", proxyErr);
+        const data = await res.json();
+        if (!res.ok || !data.success || !data.secure_url) {
+          throw new Error(
+            data.error || "Cloudinary වෙත ඡායාරූපය උඩුගත කිරීම අසාර්ථක විය."
+          );
         }
+        finalImageUrl = data.secure_url;
       }
+
 
       const newItem: GalleryItem = {
         id: "cl-" + Date.now(),

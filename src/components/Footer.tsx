@@ -56,6 +56,11 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/publications" className="text-emerald-100/80 hover:text-amber-200 transition-colors">
+                  • දහම් පුස්තකාලය & PDF
+                </Link>
+              </li>
+              <li>
                 <Link href="/calendar" className="text-emerald-100/80 hover:text-amber-200 transition-colors">
                   • පොහෝ දින වැඩසටහන් & දිනදර්ශනය
                 </Link>

@@ -66,34 +66,46 @@ export default function GalleryPage() {
     }
   }, []);
 
-  // Load custom uploaded/edited items from localStorage
+  // Load custom uploaded/edited items from Firestore API (with localStorage fallback)
   useEffect(() => {
-    try {
-      const saved = localStorage.getItem(STORAGE_KEY);
-      if (saved) {
-        const parsed = JSON.parse(saved);
-        if (Array.isArray(parsed) && parsed.length > 0) {
-          setItems(parsed);
+    let isMounted = true;
+
+    async function loadGallery() {
+      try {
+        const res = await fetch("/api/gallery");
+        const data = await res.json();
+        if (isMounted && data.success && Array.isArray(data.items) && data.items.length > 0) {
+          setItems(data.items);
+          saveItemsToStorage(data.items);
           return;
         }
+      } catch (err) {
+        console.warn("Could not fetch gallery from Firestore API, using local cache:", err);
       }
 
-      // Legacy fallback
-      const legacy = localStorage.getItem("monastery_gallery_uploads");
-      if (legacy) {
-        const parsedLegacy = JSON.parse(legacy);
-        if (Array.isArray(parsedLegacy) && parsedLegacy.length > 0) {
-          const merged = [...parsedLegacy, ...INITIAL_GALLERY_ITEMS];
-          setItems(merged);
-          saveItemsToStorage(merged);
-          return;
+      // LocalStorage fallback
+      try {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved) {
+          const parsed = JSON.parse(saved);
+          if (isMounted && Array.isArray(parsed) && parsed.length > 0) {
+            setItems(parsed);
+            return;
+          }
         }
+      } catch (e) {
+        console.warn("Could not read from localStorage", e);
       }
 
-      setItems(INITIAL_GALLERY_ITEMS);
-    } catch (e) {
-      console.warn("Could not read from localStorage", e);
+      if (isMounted) {
+        setItems(INITIAL_GALLERY_ITEMS);
+      }
     }
+
+    loadGallery();
+    return () => {
+      isMounted = false;
+    };
   }, [saveItemsToStorage]);
 
   // Auto-hide toast after 3 seconds
@@ -131,35 +143,55 @@ export default function GalleryPage() {
     setToastMessage("පරිපාලක ගිණුමෙන් සාර්ථකව පිටවිය.");
   };
 
-  // Upload handler
-  const handleUploadSuccess = (newItem: GalleryItem) => {
+  // Upload handler with Firestore sync
+  const handleUploadSuccess = async (newItem: GalleryItem) => {
     const updated = [newItem, ...items];
     setItems(updated);
     saveItemsToStorage(updated);
     setIsAdmin(true);
     setToastMessage("නව ඡායාරූපය සාර්ථකව එක්කරන ලදී.");
+
+    try {
+      await fetch("/api/gallery", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(newItem),
+      });
+    } catch (err) {
+      console.warn("Failed to sync new gallery item to Firestore:", err);
+    }
   };
 
-  // Edit handlers
+  // Edit handlers with Firestore sync
   const handleOpenEdit = (item: GalleryItem) => {
     setEditingItem(item);
     setEditModalOpen(true);
   };
 
-  const handleSaveEdit = (updatedItem: GalleryItem) => {
+  const handleSaveEdit = async (updatedItem: GalleryItem) => {
     const updated = items.map((i) => (i.id === updatedItem.id ? updatedItem : i));
     setItems(updated);
     saveItemsToStorage(updated);
     setToastMessage("ඡායාරූප තොරතුරු සාර්ථකව යාවත්කාලීන කරන ලදී.");
+
+    try {
+      await fetch("/api/gallery", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(updatedItem),
+      });
+    } catch (err) {
+      console.warn("Failed to sync edited gallery item to Firestore:", err);
+    }
   };
 
-  // Delete handlers
+  // Delete handlers with Firestore sync
   const handleOpenDelete = (item: GalleryItem) => {
     setDeletingItem(item);
     setDeleteModalOpen(true);
   };
 
-  const handleConfirmDelete = (itemToDelete: GalleryItem) => {
+  const handleConfirmDelete = async (itemToDelete: GalleryItem) => {
     const updated = items.filter((i) => i.id !== itemToDelete.id);
     setItems(updated);
     saveItemsToStorage(updated);
@@ -167,7 +199,16 @@ export default function GalleryPage() {
       setLightboxIndex(null);
     }
     setToastMessage("ඡායාරූපය සාර්ථකව මකා දමන ලදී.");
+
+    try {
+      await fetch(`/api/gallery?id=${encodeURIComponent(itemToDelete.id)}`, {
+        method: "DELETE",
+      });
+    } catch (err) {
+      console.warn("Failed to delete gallery item from Firestore:", err);
+    }
   };
+
 
   // Restore defaults
   const handleRestoreDefaults = () => {

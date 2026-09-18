@@ -1,0 +1,110 @@
+[
+  {
+    "id": "p-1",
+    "name": "මැදින් පුර පසළොස්වක පෝය",
+    "date": "2026 මාර්තු 23",
+    "poyaName": "Medin Full Moon Poya",
+    "status": "reserved",
+    "sponsor": "Reved",
+    "description": "බුදුරජාණන් වහන්සේ කිඹුල්වත්පුරයට වැඩමවීම සිහිකෙරෙන උතුම් මැදින් පුන් පොහෝ දිනය."
+  },
+  {
+    "id": "p-2",
+    "name": "බක් පුර පසළොස්වක පෝය",
+    "date": "2026 අප්‍රේල් 21",
+    "poyaName": "Bak Full Moon Poya",
+    "status": "reserved",
+    "sponsor": "reve",
+    "description": "සම්බුදුරදුන්ගේ දෙවන ලංකාගමනය සිහිකෙරෙන බක් පෝදා සීල භාවනා පිංකම."
+  },
+  {
+    "id": "p-3",
+    "name": "වෙසක් පුර පසළොස්වක පෝය",
+    "date": "2026 මැයි 20",
+    "poyaName": "Vesak Full Moon Poya",
+    "status": "reserved",
+    "sponsor": "සිටිනමලුව ගම්වාසී සියලු සැදැහැවතුන්",
+    "description": "තෙමඟුල සිහිපත් කෙරෙන උතුම් සම්බුද්ධ තෙමඟුල් මහා පින්කම හා ආලෝක පූජාව."
+  },
+  {
+    "id": "p-4",
+    "name": "පොසොන් පුර පසළොස්වක පෝය",
+    "date": "2026 ජූනි 19",
+    "poyaName": "Poson Full Moon Poya",
+    "status": "available",
+    "sponsor": "",
+    "description": "මිහිඳු මහ රහතන් වහන්සේගේ ලංකාගමනය සිහිකරන උතුම් ධර්ම දූත පෝය."
+  },
+  {
+    "id": "p-5",
+    "name": "ඇසළ පුර පසළොස්වක පෝය",
+    "date": "2026 ජූලි 18",
+    "poyaName": "Esala Full Moon Poya",
+    "status": "reserved",
+    "sponsor": "විදේශගත සැදැහැති දායක එකමුතුව",
+    "description": "ධම්මචක්කප්පවත්තන සූත්‍ර දේශනාව හා වස්සාන සමය ඇරඹෙන පින්බර පෝය."
+  },
+  {
+    "id": "p-6",
+    "name": "නිකිණි පුර පසළොස්වක පෝය",
+    "date": "2026 අගෝස්තු 17",
+    "poyaName": "Nikini Full Moon Poya",
+    "status": "available",
+    "sponsor": "",
+    "description": "ප්‍රථම ධර්ම සංගායනාව හා පසුවස් එළඹීම සිදුවන නිකිණි පෝය."
+  },
+  {
+    "id": "p-7",
+    "name": "බිනර පුර පසළොස්වක පෝය",
+    "date": "2026 සැප්තැම්බර් 15",
+    "poyaName": "Binara Full Moon Poya",
+    "status": "available",
+    "sponsor": "",
+    "description": "මෙහෙණි සසුන ආරම්භවීම සිහිකෙරෙන උතුම් බිනර පෝය."
+  },
+  {
+    "id": "p-8",
+    "name": "වප් පුර පසළොස්වක පෝය",
+    "date": "2026 ඔක්තෝබර් 15",
+    "poyaName": "Vap Full Moon Poya",
+    "status": "reserved",
+    "sponsor": "මල්ගහ කොරටුව ප්‍රදේශවාසී මහා දායක සභාව",
+    "description": "වස් පවාරණය හා මහා කඨින චීවර පූජා මංගල්‍යය ආරම්භ වන පින්බිම."
+  },
+  {
+    "id": "p-9",
+    "name": "ඉල් පුර පසළොස්වක පෝය",
+    "date": "2026 නොවැම්බර් 13",
+    "poyaName": "Il Full Moon Poya",
+    "status": "available",
+    "sponsor": "",
+    "description": "පස්වග තවුසන් ඇතුළු සැටනමක් රහතන් වහන්සේලා ධර්ම ප්‍රචාරයට පිටත්කළ පෝය."
+  },
+  {
+    "id": "p-10",
+    "name": "උඳුවප් පුර පසළොස්වක පෝය",
+    "date": "2026 දෙසැම්බර් 13",
+    "poyaName": "Unduvap Full Moon Poya",
+    "status": "available",
+    "sponsor": "",
+    "description": "සංඝමිත්තා මහරහත් තෙරණිය ශ්‍රී මහා බෝධි අංකුරය රැගෙන වැඩමකළ පෝය."
+  },
+  {
+    "id": "p-11",
+    "name": "දුරුතු පුර පසළොස්වක පෝය",
+    "date": "2027 ජනවාරි 12",
+    "poyaName": "Duruthu Full Moon Poya",
+    "status": "available",
+    "sponsor": "",
+    "description": "සම්බුදුරදුන්ගේ ප්‍රථම ලංකාගමනය සිදුවූ උතුම් දුරුතු පුන් පොහෝ දිනය."
+  },
+  {
+    "id": "p-12",
+    "name": "නවාම් පුර පසළොස්වක පෝය",
+    "date": "2027 පෙබරවාරි 10",
+    "poyaName": "Navam Full Moon Poya",
+    "status": "available",
+    "sponsor": "",
+    "description": "සැරියුත් මුගලන් අග්‍රශ්‍රාවක තනතුරු පිරිනැමීම සහ ඕවාද ප්‍රාතිමෝක්ෂය සිදුවූ පෝය."
+  }
+]
