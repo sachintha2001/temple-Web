@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import {
   Phone,
   MapPin,
@@ -15,6 +16,8 @@ import {
   Navigation,
   Sparkles,
   Mail,
+  Flower2,
+  ArrowRight,
 } from "lucide-react";
 import DanaBookingModal from "@/components/DanaBookingModal";
 
@@ -133,14 +136,40 @@ export default function ContactPage() {
               </div>
               <div>
                 <span className="text-xs font-semibold text-[#64748b] block">පිහිටීම / ලිපිනය:</span>
-                <p className="text-sm font-medium text-[#1e293b] mt-0.5">
-                  කපුගම සුමනවංශ නා හිමි සෙනසුන,<br />
-                  මල්ගහ කොරටුව, සිටිනමලුව, බෙලිඅත්ත.
+                <p className="text-sm font-semibold text-[#1e293b] mt-0.5">
+                  කපුගම සුමනවංශ නා හිමි සෙනසුන & සීලවංශ මෙහෙණි ආරාමය
                 </p>
-                <span className="text-xs text-[#14532d] font-semibold mt-1 block">
-                  දකුණු පළාත, ශ්‍රී ලංකාව
+                <p className="text-xs text-[#475569] mt-0.5">
+                  මල්ගහ කොරටුව, සිටිනමලුව, බෙලිඅත්ත. (දකුණු පළාත)
+                </p>
+                <span className="text-[11px] text-[#14532d] font-semibold mt-1 block">
+                  ආරණ්‍ය සේනාසනය හා මෙහෙණි ආරාමය එකම පරිශ්‍රයේ පිහිටා ඇත.
                 </span>
               </div>
+            </div>
+
+            {/* Meheni Aramaya Highlight Pill Card */}
+            <div className="p-3.5 rounded-xl bg-amber-50/80 border border-amber-300/80 flex items-center justify-between gap-3">
+              <div className="flex items-center gap-2.5">
+                <div className="w-8 h-8 rounded-lg bg-amber-200/80 text-[#92400e] flex items-center justify-center shrink-0">
+                  <Flower2 className="w-4 h-4" />
+                </div>
+                <div>
+                  <span className="text-xs font-bold text-[#92400e] block">
+                    කපුගම සීලවංශ මෙහෙණි ආරාමය
+                  </span>
+                  <span className="text-[11px] text-[#64748b]">
+                    ආරණ්‍යක මෙහෙණි සෙවණ හා දානමය පින්කම්
+                  </span>
+                </div>
+              </div>
+              <Link
+                href="/meheni-aramaya"
+                className="px-2.5 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-600 text-white text-[11px] font-semibold flex items-center gap-1 shrink-0 transition-colors"
+              >
+                <span>විස්තර</span>
+                <ArrowRight className="w-3 h-3" />
+              </Link>
             </div>
 
             {/* Phone */}

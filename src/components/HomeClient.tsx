@@ -21,6 +21,8 @@ import {
   BookOpen,
   Download,
   FolderOpen,
+  Flower2,
+  MapPin,
 } from "lucide-react";
 import { YouTubeChannelStats, YouTubeVideoItem } from "@/lib/youtube";
 import {
@@ -502,7 +504,81 @@ export default function HomeClient({ channel, videos }: HomeClientProps) {
         </div>
       </section>
 
-      {/* 4. MONASTERY HERMITAGE GALLERY PREVIEW */}
+      {/* 4. KAPUGAMA SEELAWANSA MEHENI ARAMAYA FEATURE SECTION */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-[#14532d] via-[#1a4329] to-[#0a2313] text-white p-6 sm:p-10 lg:p-12 shadow-xl border border-amber-500/30">
+          <div className="absolute -top-10 -right-10 w-80 h-80 bg-amber-400/10 rounded-full blur-3xl pointer-events-none" />
+
+          <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div className="lg:col-span-8 space-y-4 text-center sm:text-left">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-400/20 text-amber-200 border border-amber-400/30 text-xs font-semibold">
+                <Flower2 className="w-3.5 h-3.5 text-amber-300" />
+                <span>ආරණ්‍යක කාන්තා සසුන් සෙවණ • බෙලිඅත්ත</span>
+              </div>
+
+              <h2 className="font-serif-monastic text-2xl sm:text-3xl lg:text-4xl font-bold text-white leading-tight">
+                කපුගම සීලවංශ <span className="text-amber-300">මෙහෙණි ආරාමය</span>
+              </h2>
+
+              <p className="text-xs sm:text-sm lg:text-base text-emerald-100/90 leading-relaxed max-w-2xl">
+                කපුගම සුමනවංශ නා හිමි සෙනසුන් භූමියෙහිම, පූජ්‍ය දික්කුඹුරේ සුභූති ස්වාමීන් වහන්සේගේ ප්‍රධාන අනුශාසනා යටතේ ක්‍රියාත්මක වන මෙම පුණ්‍ය භූමිය, මෙහෙණින් වහන්සේලා සහ දසසිල් මාතාවන් උදෙසා සතිපට්ඨාන විදර්ශනා භාවනාවන් ප්‍රගුණ කෙරෙන අතිශය ශාන්ත වනගත සෙවණකි.
+              </p>
+
+              <div className="flex flex-wrap items-center justify-center sm:justify-start gap-4 text-xs text-amber-100 pt-1">
+                <span className="flex items-center gap-1.5">
+                  <MapPin className="w-4 h-4 text-amber-400 shrink-0" />
+                  <span>මල්ගහ කොරටුව, සිටිනමලුව, බෙලිඅත්ත</span>
+                </span>
+                <span className="hidden sm:inline text-emerald-400">•</span>
+                <span className="flex items-center gap-1.5">
+                  <Sparkles className="w-4 h-4 text-amber-400 shrink-0" />
+                  <span>සතිපට්ඨාන විදර්ශනා භාවනා</span>
+                </span>
+              </div>
+
+              <div className="pt-3 flex flex-col sm:flex-row items-stretch sm:items-center justify-center sm:justify-start gap-3">
+                <Link
+                  href="/meheni-aramaya"
+                  className="px-6 py-2.5 rounded-full bg-amber-400 hover:bg-amber-300 text-[#111c2d] text-xs sm:text-sm font-bold transition-all shadow-md flex items-center justify-center gap-2 text-center"
+                >
+                  <span>මෙහෙණි ආරාම විස්තර හා කාලසටහන</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+                <button
+                  type="button"
+                  onClick={() => setDanaModalOpen(true)}
+                  className="px-6 py-2.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white text-xs sm:text-sm font-semibold transition-all flex items-center justify-center gap-2 text-center cursor-pointer"
+                >
+                  <Heart className="w-4 h-4 fill-current text-amber-300" />
+                  <span>මෙහෙණි ආරාමයට දානය වෙන්කරන්න</span>
+                </button>
+              </div>
+            </div>
+
+            <div className="lg:col-span-4 flex justify-center">
+              <div className="bg-[#fdfbf7] text-[#1e293b] p-5 rounded-2xl border border-amber-300 shadow-xl max-w-xs w-full space-y-3 text-center sm:text-left">
+                <div className="w-12 h-12 rounded-xl bg-amber-100 border border-amber-300 text-[#92400e] flex items-center justify-center mx-auto sm:mx-0">
+                  <Flower2 className="w-6 h-6" />
+                </div>
+                <div>
+                  <h3 className="font-serif-monastic font-bold text-base text-[#1e293b]">
+                    දෛනික දානමය දායකත්වයන්
+                  </h3>
+                  <p className="text-xs text-[#64748b] mt-1">
+                    හීල් දානය, දහවල් දානය, සන්ධ්‍යා ගිලන්පස හෝ සිවුපස පූජාවන් වෙන්කරවා ගත හැක.
+                  </p>
+                </div>
+                <div className="pt-2 border-t border-[#e6dfd3] flex items-center justify-between text-xs">
+                  <span className="text-[#14532d] font-semibold">සෘජු ඇමතුම්:</span>
+                  <a href="tel:0701174907" className="text-[#92400e] font-bold font-mono">070 117 4907</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. MONASTERY HERMITAGE GALLERY PREVIEW */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
           <div>

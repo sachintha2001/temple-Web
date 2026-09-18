@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Menu, X, Phone, Heart, Calendar, Image as ImageIcon, Compass, BookOpen } from "lucide-react";
+import { Menu, X, Phone, Heart, Calendar, Image as ImageIcon, Compass, BookOpen, Flower2 } from "lucide-react";
 import YoutubeIcon from "./YoutubeIcon";
 import DanaBookingModal from "./DanaBookingModal";
 import SriLankaClock from "./SriLankaClock";
@@ -51,11 +51,12 @@ export default function Navbar() {
 
   const navLinks = [
     { name: "මුල් පිටුව", href: "/", icon: Compass },
+    { name: "මෙහෙණි ආරාමය", href: "/meheni-aramaya", icon: Flower2 },
     { name: "ධර්ම දේශනා & මාධ්‍ය", href: "/media", icon: YoutubeIcon },
     { name: "දහම් පුස්තකාලය (PDF)", href: "/publications", icon: BookOpen },
     { name: "පොහෝ දින වැඩසටහන්", href: "/calendar", icon: Calendar },
     { name: "පිංකම් (ගැලරිය)", href: "/gallery", icon: ImageIcon },
-    { name: "සේනාසන තොරතුරු & සබඳතා", href: "/contact", icon: Phone },
+    { name: "සේනාසන තොරතුරු", href: "/contact", icon: Phone },
   ];
 
   return (
@@ -96,20 +97,20 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
+          <nav className="hidden lg:flex items-center gap-0.5 xl:gap-1.5">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
               return (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`px-3.5 py-2 rounded-lg text-sm font-medium transition-all duration-200 flex items-center gap-1.5 ${
+                  className={`px-2 xl:px-3 py-1.5 rounded-lg text-xs xl:text-sm font-medium transition-all duration-200 flex items-center gap-1 xl:gap-1.5 shrink-0 ${
                     isActive
                       ? "text-[#92400e] bg-[#ffc2a5]/30 font-semibold"
                       : "text-[#334155] hover:text-[#92400e] hover:bg-[#f1ece1]/70"
                   }`}
                 >
-                  <link.icon className={`w-4 h-4 ${isActive ? "text-[#92400e]" : "text-[#64748b]"}`} />
+                  <link.icon className={`w-3.5 h-3.5 xl:w-4 xl:h-4 ${isActive ? "text-[#92400e]" : "text-[#64748b]"}`} />
                   <span>{link.name}</span>
                 </Link>
               );
@@ -272,10 +273,10 @@ export default function Navbar() {
         {/* Drawer Monastic Footer */}
         <div className="p-3.5 border-t border-[#e6dfd3] bg-[#f8f5ee]/60 text-center text-xs text-[#64748b] shrink-0">
           <p className="font-serif-monastic text-[#92400e] font-semibold text-xs">
-            කපුගම සුමනවංශ නා හිමි සෙනසුන
+            කපුගම සුමනවංශ සෙනසුන & සීලවංශ මෙහෙණි ආරාමය
           </p>
           <p className="text-[11px] text-[#64748b] mt-0.5">
-            අරණ්‍ය සේනාසනය • මල්ගහ කොරටුව, බෙලිඅත්ත
+            ආරණ්‍ය සේනාසනය හා මෙහෙණි සෙවණ • මල්ගහ කොරටුව, සිටිනමලුව, බෙලිඅත්ත
           </p>
         </div>
       </aside>

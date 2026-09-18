@@ -51,6 +51,11 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/meheni-aramaya" className="text-amber-300 font-semibold hover:text-white transition-colors">
+                  • කපුගම සීලවංශ මෙහෙණි ආරාමය
+                </Link>
+              </li>
+              <li>
                 <Link href="/media" className="text-emerald-100/80 hover:text-amber-200 transition-colors">
                   • ධර්ම දේශනා & YouTube මාධ්‍ය
                 </Link>
@@ -87,7 +92,7 @@ export default function Footer() {
               <div className="flex items-start gap-2.5">
                 <MapPin className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
                 <p className="text-xs sm:text-sm leading-relaxed">
-                  කපුගම සුමනවංශ නා හිමි සෙනසුන,<br />
+                  කපුගම සුමනවංශ සෙනසුන & සීලවංශ මෙහෙණි ආරාමය,<br />
                   මල්ගහ කොරටුව, සිටිනමලුව, බෙලිඅත්ත.
                 </p>
               </div>

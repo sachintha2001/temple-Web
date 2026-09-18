@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { X, Heart, Calendar, Phone, CheckCircle2, User, MapPin } from "lucide-react";
 
 interface DanaBookingModalProps {
@@ -19,12 +19,31 @@ export default function DanaBookingModal({
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
+    institution: prefilledType?.includes("මෙහෙණි")
+      ? "කපුගම සීලවංශ මෙහෙණි ආරාමය"
+      : "කපුගම සුමනවංශ නා හිමි සෙනසුන (ආරණ්‍ය සේනාසනය)",
     danaType: prefilledType || "දහවල් සම්බුද්ධ පූජාව සහ සංඝගත දානය (Dahawal Dana)",
     date: prefilledDate || "",
     participants: "1-5",
     notes: "",
   });
   const [submitted, setSubmitted] = useState(false);
+
+  useEffect(() => {
+    if (prefilledType) {
+      const isMeheni = prefilledType.includes("මෙහෙණි");
+      setFormData((prev) => ({
+        ...prev,
+        danaType: prefilledType,
+        institution: isMeheni
+          ? "කපුගම සීලවංශ මෙහෙණි ආරාමය"
+          : prev.institution,
+      }));
+    }
+    if (prefilledDate) {
+      setFormData((prev) => ({ ...prev, date: prefilledDate }));
+    }
+  }, [prefilledType, prefilledDate]);
 
   if (!isOpen) return null;
 
@@ -69,6 +88,7 @@ export default function DanaBookingModal({
               ඔබ වෙන්කළ දානමය දිනය සහ විස්තර පිළිබඳව සේනාසන කාර්යාලයෙන් ඔබ අමතා තහවුරු කරනු ඇත.
             </p>
             <div className="bg-[#f8f5ee] border border-[#e6dfd3] p-4 rounded-xl text-left text-xs space-y-1.5 text-[#334155]">
+              <p><strong>ස්ථානය:</strong> {formData.institution}</p>
               <p><strong>නම:</strong> {formData.name}</p>
               <p><strong>දුරකථන:</strong> {formData.phone}</p>
               <p><strong>දාන වර්ගය:</strong> {formData.danaType}</p>
@@ -79,7 +99,7 @@ export default function DanaBookingModal({
             </p>
             <button
               onClick={handleReset}
-              className="mt-4 px-6 py-2.5 bg-[#92400e] hover:bg-[#712c00] text-white rounded-xl text-sm font-semibold transition-colors"
+              className="mt-4 px-6 py-2.5 bg-[#92400e] hover:bg-[#712c00] text-white rounded-xl text-sm font-semibold transition-colors cursor-pointer"
             >
               සම්පූර්ණයි (Close)
             </button>
@@ -87,8 +107,23 @@ export default function DanaBookingModal({
         ) : (
           <form onSubmit={handleSubmit} className="p-4 sm:p-6 space-y-4 overflow-y-auto flex-1">
             <p className="text-xs text-[#64748b]">
-              කපුගම සුමනවංශ නා හිමි සෙනසුනේ වැඩවසන ආරණ්‍යක සංඝරත්නය උදෙසා දානමය දායකත්වයන් ලබාගැනීමට පහත තොරතුරු පුරවන්න.
+              කපුගම සුමනවංශ නා හිමි සෙනසුනේ ආරණ්‍යක මහා සංඝරත්නය හෝ කපුගම සීලවංශ මෙහෙණි ආරාමයේ මෙහෙණින් වහන්සේලා උදෙසා දානමය දායකත්වයන් ලබාගැනීමට පහත තොරතුරු පුරවන්න.
             </p>
+
+            <div>
+              <label className="block text-xs font-semibold text-[#1e293b] mb-1">
+                පූජා කරන ස්ථානය / ආරාමය *
+              </label>
+              <select
+                value={formData.institution}
+                onChange={(e) => setFormData({ ...formData, institution: e.target.value })}
+                className="w-full px-3 py-2.5 text-xs sm:text-sm rounded-xl border border-[#e6dfd3] bg-[#f8f5ee] focus:outline-none focus:ring-2 focus:ring-[#92400e] text-[#1e293b] font-medium"
+              >
+                <option>කපුගම සුමනවංශ නා හිමි සෙනසුන (ආරණ්‍ය සේනාසනය)</option>
+                <option>කපුගම සීලවංශ මෙහෙණි ආරාමය</option>
+                <option>උභය ස්ථානයන් උදෙසාම (Both Monasteries)</option>
+              </select>
+            </div>
 
             <div>
               <label className="block text-xs font-semibold text-[#1e293b] mb-1">
@@ -139,6 +174,7 @@ export default function DanaBookingModal({
                   <option>සන්ධ්‍යා ගිලන්පස පූජාව (Gilanpasa)</option>
                   <option>පෝදා ශීල දානමය දායකත්වය (Poya Sil Dana)</option>
                   <option>පිරිකර හා බෙහෙත් පූජාව (Aushadha Dana)</option>
+                  <option>සිවුපස හා නඩත්තු දායකත්වය</option>
                 </select>
               </div>
 
