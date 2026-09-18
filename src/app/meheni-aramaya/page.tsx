@@ -19,6 +19,7 @@ import {
   CheckCircle2,
   Flower2,
   BookOpen,
+  MessageCircle,
 } from "lucide-react";
 import DanaBookingModal from "@/components/DanaBookingModal";
 
@@ -354,18 +355,18 @@ export default function MeheniAramayaPage() {
         </div>
       </section>
 
-      {/* 4. DANA & MERIT OPPORTUNITIES */}
+      {/* 4. DANA & MERIT OPPORTUNITIES & ORDINATION */}
       <section className="space-y-8">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-[#e6dfd3] pb-4">
           <div>
             <span className="text-xs font-semibold uppercase tracking-wider text-[#92400e] block">
-              පුණ්‍ය මහෝත්සව
+              පුණ්‍ය මහෝත්සව & ශාසනික මඟ
             </span>
             <h2 className="font-serif-monastic text-2xl sm:text-3xl font-bold text-[#1e293b]">
               මෙහෙණි ආරාමයට දානමය දායකත්වයන්
             </h2>
-            <p className="text-xs sm:text-sm text-[#64748b] mt-1">
-              මෙහෙණින් වහන්සේලා විෂයෙහි හීල් දාන, දහවල් දාන, ගිලන්පස හා සිවුපස පූජාවන් වෙන්කරවා ගැනීමේ අවස්ථාව.
+            <p className="text-xs sm:text-sm text-[#64748b] mt-1 max-w-2xl">
+              මෙහෙණින් වහන්සේලා විෂයෙහි හීල් දාන, දහවල් දාන, ගිලන්පස හා සිවුපස පූජාවන් වෙන්කරවා ගැනීමේ අවස්ථාව මෙන්ම උතුම් සසුන්ගත වීමට (පැවිදි වීමට) අපේක්ෂිත පින්වතියන්ට ද මෙහෙණි ආරාමය වෙත පැමිණිය හැක.
             </p>
           </div>
 
@@ -377,6 +378,55 @@ export default function MeheniAramayaPage() {
             <Heart className="w-4 h-4 fill-current text-amber-200" />
             <span>දායකත්වයක් වෙන්කරන්න</span>
           </button>
+        </div>
+
+        {/* Pevidi Vima / Ordination Announcement Banner */}
+        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#712c00] via-[#92400e] to-[#14532d] p-6 sm:p-8 text-white shadow-lg border border-amber-400/40">
+          <div className="absolute -right-10 -bottom-10 w-64 h-64 bg-amber-400/10 rounded-full blur-3xl pointer-events-none" />
+          <div className="relative z-10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
+            <div className="space-y-3 max-w-3xl">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-300/20 border border-amber-300/30 text-amber-200 text-xs font-semibold">
+                <Sparkles className="w-3.5 h-3.5 text-amber-300" />
+                <span>උතුම් සසුන්ගත වීම • මෙහෙණි ආරාමයට පැවිදි වීමට පැමිණීමේ අවස්ථාව</span>
+              </div>
+              <h3 className="font-serif-monastic text-xl sm:text-2xl font-bold text-amber-100">
+                මෙහෙණි ආරාමයේදී උතුම් පැවිදි දිවියට ඇතුළත් විය හැකිය
+              </h3>
+              <p className="text-xs sm:text-sm text-amber-50/90 leading-relaxed">
+                සසර දුකින් මිදී නිර්වාණ සුවය අරමුණු කොට, සීල, සමාධි, ප්‍රඥා ගුණ වඩමින් ආර්ය මාර්ගයේ ගමන් කිරීමට හා දසසිල් සමාදන්ව ආරණ්‍යක දිවිපෙවෙතක් ගතකරමින් උතුම් පැවිදි දිවියට ඇතුළත් වීමට (සසුන්ගත වීමට) කැමති සැදැහැවත් පින්වත් කුලකාන්තාවන්ට හා මෑණිවරුන්ට කපුගම සීලවංශ මෙහෙණි ආරාමය වෙත පැමිණිය හැකිය.
+              </p>
+              <div className="flex flex-wrap items-center gap-4 text-xs text-amber-200/90 pt-1">
+                <span className="flex items-center gap-1.5">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-400" /> දසසිල් මාතා පැවිදි බව
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-400" /> ආරණ්‍යක සතිපට්ඨාන භාවනා පුහුණුව
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-400" /> ත්‍රිපිටක ධර්ම ශික්ෂණය හා විනය
+                </span>
+              </div>
+            </div>
+
+            <div className="flex flex-col sm:flex-row lg:flex-col gap-3 w-full lg:w-auto shrink-0">
+              <a
+                href="tel:0701174907"
+                className="px-5 py-3 rounded-full bg-amber-400 hover:bg-amber-300 text-[#712c00] font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all shadow-md active:scale-95 text-center"
+              >
+                <Phone className="w-4 h-4" />
+                <span>පැවිදි වීම විමසන්න (070 117 4907)</span>
+              </a>
+              <a
+                href="https://wa.me/94701174907?text=තෙරුවන්%20සරණයි.%20කපුගම%20සීලවංශ%20මෙහෙණි%20ආරාමයේ%20පැවිදි%20වීම%20පිළිබඳව%20තොරතුරු%20දැනගැනීමට%20කැමැත්තෙමි."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-5 py-2.5 rounded-full bg-emerald-700 hover:bg-emerald-600 text-white font-medium text-xs sm:text-sm flex items-center justify-center gap-2 transition-all shadow-xs active:scale-95 text-center"
+              >
+                <MessageCircle className="w-4 h-4" />
+                <span>WhatsApp මඟින් විමසන්න</span>
+              </a>
+            </div>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">

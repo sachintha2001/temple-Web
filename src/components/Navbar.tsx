@@ -117,28 +117,8 @@ export default function Navbar() {
             })}
           </nav>
 
-          {/* Right Action: Dana Sponsor Button */}
-          <div className="hidden sm:flex items-center gap-3">
-            <button
-              type="button"
-              onClick={() => setDanaModalOpen(true)}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold tracking-wide text-white bg-[#92400e] hover:bg-[#712c00] transition-all duration-200 shadow-sm hover:shadow active:scale-95 cursor-pointer"
-            >
-              <Heart className="w-3.5 h-3.5 fill-current text-amber-200" />
-              <span>දානමය දායකත්වය</span>
-            </button>
-          </div>
-
-          {/* Mobile menu triggers */}
+          {/* Mobile menu trigger */}
           <div className="flex items-center gap-2 lg:hidden">
-            <button
-              type="button"
-              onClick={() => setDanaModalOpen(true)}
-              aria-label="දානමය දායකත්වය"
-              className="sm:hidden p-2.5 rounded-xl bg-[#92400e] text-white active:scale-95 transition-transform cursor-pointer touch-manipulation shadow-xs flex items-center justify-center"
-            >
-              <Heart className="w-4 h-4 fill-current" />
-            </button>
             <button
               type="button"
               onClick={() => setMobileMenuOpen((prev) => !prev)}

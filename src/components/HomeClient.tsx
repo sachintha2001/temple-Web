@@ -562,10 +562,10 @@ export default function HomeClient({ channel, videos }: HomeClientProps) {
                 </div>
                 <div>
                   <h3 className="font-serif-monastic font-bold text-base text-[#1e293b]">
-                    දෛනික දානමය දායකත්වයන්
+                    දාන දායකත්වය & පැවිදි වීමේ අවස්ථාව
                   </h3>
                   <p className="text-xs text-[#64748b] mt-1">
-                    හීල් දානය, දහවල් දානය, සන්ධ්‍යා ගිලන්පස හෝ සිවුපස පූජාවන් වෙන්කරවා ගත හැක.
+                    දෛනික දාන පූජාවන් මෙන්ම සසුන්ගත වීමට (පැවිදි වීමට) කැමති පින්වතියන්ට ද මෙහෙණි ආරාමය වෙත පැමිණිය හැක.
                   </p>
                 </div>
                 <div className="pt-2 border-t border-[#e6dfd3] flex items-center justify-between text-xs">
