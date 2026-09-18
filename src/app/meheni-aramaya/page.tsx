@@ -194,47 +194,29 @@ export default function MeheniAramayaPage() {
             </div>
           </div>
 
-          {/* Right Highlight Badge Card */}
+          {/* Right Highlight Image Card */}
           <div className="lg:col-span-4 flex justify-center">
-            <div className="bg-[#fdfbf7] text-[#1e293b] rounded-3xl p-6 shadow-2xl border-2 border-amber-400/60 max-w-sm w-full space-y-4">
-              <div className="w-14 h-14 rounded-2xl bg-amber-100 border border-amber-300 text-[#92400e] flex items-center justify-center mx-auto shadow-sm">
-                <Flower2 className="w-7 h-7" />
-              </div>
-
-              <div className="text-center space-y-1">
-                <span className="text-[11px] font-bold text-[#92400e] uppercase tracking-wider block">
-                  ආරණ්‍යක ශාඛාව
+            <div className="relative w-full max-w-sm aspect-[4/5] sm:aspect-square lg:aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl border-4 border-[#14532d]/40 ring-2 ring-amber-400/50 group">
+              <Image
+                src="/meheni-aramaya-hero.jpg"
+                alt="කඨින මහාපින්කම - කපුගම සීලවංශ මෙහෙණි ආරාමය"
+                fill
+                sizes="(max-width: 1024px) 100vw, 400px"
+                className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0a2313]/90 via-[#0a2313]/30 to-transparent" />
+              
+              <div className="absolute bottom-6 left-6 right-6 text-center z-10">
+                <div className="w-10 h-10 rounded-full bg-[#14532d]/80 backdrop-blur-md border border-amber-400/50 text-amber-300 flex items-center justify-center mx-auto mb-3 shadow-lg">
+                  <Flower2 className="w-5 h-5" />
+                </div>
+                <span className="text-[11px] font-bold text-amber-400 uppercase tracking-wider block mb-1">
+                  කඨින මහා පින්කම
                 </span>
-                <h3 className="font-serif-monastic font-bold text-lg text-[#1e293b]">
-                  කපුගම සීලවංශ මෙහෙණි ආරාමය
+                <h3 className="font-serif-monastic font-semibold text-base sm:text-lg text-white">
+                  ආරණ්‍යක කාන්තා සසුන් සෙවණ
                 </h3>
-                <p className="text-xs text-[#64748b]">
-                  පූජ්‍ය දික්කුඹුරේ සුභූති ස්වාමීන් වහන්සේගේ ප්‍රධාන අනුශාසනා යටතේ පාලනය වේ.
-                </p>
-              </div>
-
-              <div className="border-t border-[#e6dfd3] pt-3 space-y-2 text-xs text-[#475569]">
-                <div className="flex items-center justify-between">
-                  <span className="font-medium text-[#64748b]">වාසය:</span>
-                  <span className="font-semibold text-[#14532d]">මෙහෙණින් වහන්සේලා & දසසිල් මාතාවන්</span>
-                </div>
-                <div className="flex items-center justify-between">
-                  <span className="font-medium text-[#64748b]">භාවනා ක්‍රමය:</span>
-                  <span className="font-semibold text-[#92400e]">සතිපට්ඨාන විදර්ශනා</span>
-                </div>
-                <div className="flex items-center justify-between">
-                  <span className="font-medium text-[#64748b]">ප්‍රවේශය:</span>
-                  <span className="font-semibold text-emerald-800">සැදැහැවතුන්ට විවෘතයි</span>
-                </div>
-              </div>
-
-              <div className="pt-2">
-                <Link
-                  href="/contact"
-                  className="w-full block text-center py-2.5 px-4 rounded-xl bg-[#92400e] hover:bg-[#712c00] text-white text-xs font-semibold transition-colors"
-                >
-                  මාර්ග විස්තර හා ස්ථානය බලන්න
-                </Link>
               </div>
             </div>
           </div>
