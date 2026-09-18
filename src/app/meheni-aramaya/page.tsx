@@ -89,16 +89,16 @@ const MEHENI_DAILY_SCHEDULE: ScheduleItem[] = [
 
 const DANA_OPPORTUNITIES = [
   {
-    title: "හීල් දාන පූජාව",
-    desc: "උදෑසන බුද්ධ පූජාව, කැඳ සහ හීල් දානය මෙහෙණින් වහන්සේලා විෂයෙහි පූජා කිරීම.",
+    title: "හීල් ආහාර පූජාව",
+    desc: "උදෑසන බුද්ධ පූජාව, කැඳ සහ හීල් ආහාර පූජාව මෙහෙණින් වහන්සේලා විෂයෙහි පූජා කිරීම.",
     time: "උදෑසන 6:15",
-    tag: "දෛනික දානය",
+    tag: "දෛනික පූජාව",
   },
   {
-    title: "දහවල් දානමය පින්කම",
-    desc: "දහවල් සම්බුද්ධ පූජාව, ව්‍යංජන සහිත මහා දානය සහ අටපිරිකර ආදී සිවුපස පූජාවන්.",
+    title: "දහවල් ආහාර පූජාව",
+    desc: "දහවල් සම්බුද්ධ පූජාව, ව්‍යංජන සහිත මහා ආහාර පූජාව සහ අටපිරිකර ආදී සිවුපස පූජාවන්.",
     time: "පෙ.ව. 11:15",
-    tag: "ප්‍රධාන දානය",
+    tag: "ප්‍රධාන පූජාව",
   },
   {
     title: "සන්ධ්‍යා ගිලන්පස පූජාව",
@@ -107,8 +107,8 @@ const DANA_OPPORTUNITIES = [
     tag: "ගිලන්පස",
   },
   {
-    title: "පෝදා ශීල දානමය දායකත්වය",
-    desc: "පුර පසළොස්වක පොහෝ දිනවල උපෝසථ අෂ්ටාංග ශීලය සමාදන් වන සැදැහැවතියන්ගේ දාන දායකත්වය.",
+    title: "පෝදා ශීල දායකත්වය",
+    desc: "පුර පසළොස්වක පොහෝ දිනවල උපෝසථ අෂ්ටාංග ශීලය සමාදන් වන සැදැහැවතියන්ගේ දායකත්වය.",
     time: "පෝය දිනය පුරා",
     tag: "පෝදා පින්කම්",
   },
@@ -129,14 +129,14 @@ const DANA_OPPORTUNITIES = [
 const GUIDELINES = [
   "සුදු හෝ ශාන්ත පැහැති සුදුසු සංවර වස්ත්‍රවලින් සැරසී ආරාම පරිශ්‍රයට පැමිණෙන්න.",
   "මෙහෙණි ආරාමය භාවනානුයෝගී ශාන්ත පුණ්‍ය භූමියක් බැවින් නිහඬතාවය සහ සංවරශීලී බව උපරිමයෙන් සුරකින්න.",
-  "දානමය පින්කම් සඳහා කලින් දිනයක් සහ වේලාවක් වෙන්කරවා ගෙන පැමිණීම වඩාත් පහසු වේ (070 117 4907).",
+  "සිවුපස පූජාවන් සඳහා කලින් දිනයක් සහ වේලාවක් වෙන්කරවා ගෙන පැමිණීම වඩාත් පහසු වේ (070 117 4907).",
   "ප්ලාස්ටික් හා පොලිතින් පරිහරණය අවම කර පරිසර හිතකාමී ලෙස පූජා ද්‍රව්‍ය රැගෙන ඒමට කාරුණික වන්න.",
   "පොහෝ දින ශීල සමාදානය සඳහා පැමිණෙන උපාසිකාවන් උදෑසන 6.00 ට පෙර පැමිණීම යෝග්‍ය වේ.",
 ];
 
 export default function MeheniAramayaPage() {
   const [danaModalOpen, setDanaModalOpen] = useState(false);
-  const [prefilledDana, setPrefilledDana] = useState("කපුගම සීලවංශ මෙහෙණි ආරාමය - දහවල් දානය");
+  const [prefilledDana, setPrefilledDana] = useState("කපුගම සීලවංශ මෙහෙණි ආරාමය - දහවල් ආහාර පූජාව");
 
   const handleOpenDana = (title: string) => {
     setPrefilledDana(`කපුගම සීලවංශ මෙහෙණි ආරාමය - ${title}`);
@@ -177,11 +177,11 @@ export default function MeheniAramayaPage() {
             <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center justify-center sm:justify-start gap-3.5">
               <button
                 type="button"
-                onClick={() => handleOpenDana("දානමය දායකත්වය")}
+                onClick={() => handleOpenDana("සිවුපස පූජාවන්")}
                 className="px-6 py-3 rounded-full text-xs sm:text-sm font-bold text-[#111c2d] bg-amber-400 hover:bg-amber-300 transition-all shadow-lg active:scale-95 flex items-center justify-center gap-2 cursor-pointer"
               >
                 <Heart className="w-4 h-4 fill-current text-[#111c2d]" />
-                <span>මෙහෙණි ආරාමයට දානය වෙන්කරන්න</span>
+                <span>මෙහෙණි ආරාමයට පූජාවන් වෙන්කරන්න</span>
               </button>
 
               <a
@@ -363,16 +363,16 @@ export default function MeheniAramayaPage() {
               පුණ්‍ය මහෝත්සව & ශාසනික මඟ
             </span>
             <h2 className="font-serif-monastic text-2xl sm:text-3xl font-bold text-[#1e293b]">
-              මෙහෙණි ආරාමයට දානමය දායකත්වයන්
+              මෙහෙණි ආරාමයට සිවුපස පූජාවන් සහ දායකත්වයන්
             </h2>
             <p className="text-xs sm:text-sm text-[#64748b] mt-1 max-w-2xl">
-              මෙහෙණින් වහන්සේලා විෂයෙහි හීල් දාන, දහවල් දාන, ගිලන්පස හා සිවුපස පූජාවන් වෙන්කරවා ගැනීමේ අවස්ථාව මෙන්ම උතුම් සසුන්ගත වීමට (පැවිදි වීමට) අපේක්ෂිත පින්වතියන්ට ද මෙහෙණි ආරාමය වෙත පැමිණිය හැක.
+              මෙහෙණින් වහන්සේලා විෂයෙහි හීල් ආහාර පූජාව, දහවල් ආහාර පූජාව, ගිලන්පස හා සිවුපස පූජාවන් වෙන්කරවා ගැනීමේ අවස්ථාව මෙන්ම උතුම් සසුන්ගත වීමට (පැවිදි වීමට) අපේක්ෂිත පින්වතියන්ට ද මෙහෙණි ආරාමය වෙත පැමිණිය හැක.
             </p>
           </div>
 
           <button
             type="button"
-            onClick={() => handleOpenDana("සාමාන්‍ය දානමය දායකත්වය")}
+            onClick={() => handleOpenDana("සාමාන්‍ය පූජාවන් හා දායකත්වය")}
             className="px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold text-white bg-[#92400e] hover:bg-[#712c00] transition-colors shadow-sm flex items-center justify-center gap-2 shrink-0 cursor-pointer"
           >
             <Heart className="w-4 h-4 fill-current text-amber-200" />

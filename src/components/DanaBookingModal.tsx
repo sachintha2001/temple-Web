@@ -107,7 +107,7 @@ export default function DanaBookingModal({
         ) : (
           <form onSubmit={handleSubmit} className="p-4 sm:p-6 space-y-4 overflow-y-auto flex-1">
             <p className="text-xs text-[#64748b]">
-              කපුගම සුමනවංශ නා හිමි සෙනසුනේ ආරණ්‍යක මහා සංඝරත්නය හෝ කපුගම සීලවංශ මෙහෙණි ආරාමයේ මෙහෙණින් වහන්සේලා උදෙසා දානමය දායකත්වයන් ලබාගැනීමට පහත තොරතුරු පුරවන්න.
+              කපුගම සුමනවංශ නා හිමි සෙනසුනේ ආරණ්‍යක මහා සංඝරත්නය හෝ කපුගම සීලවංශ මෙහෙණි ආරාමයේ මෙහෙණින් වහන්සේලා උදෙසා දානමානාදී පූජාවන් සහ සිවුපස දායකත්වයන් ලබාදීමට පහත තොරතුරු පුරවන්න.
             </p>
 
             <div>
@@ -169,11 +169,11 @@ export default function DanaBookingModal({
                   onChange={(e) => setFormData({ ...formData, danaType: e.target.value })}
                   className="w-full px-3 py-2.5 text-xs sm:text-sm rounded-xl border border-[#e6dfd3] bg-[#f8f5ee] focus:outline-none focus:ring-2 focus:ring-[#92400e] text-[#1e293b]"
                 >
-                  <option>දහවල් දානය (Dahawal Dana)</option>
-                  <option>හීල් දානය (Heel Dana)</option>
+                  <option>දහවල් දානය / ආහාර පූජාව (Dahawal Dana)</option>
+                  <option>හීල් දානය / ආහාර පූජාව (Heel Dana)</option>
                   <option>සන්ධ්‍යා ගිලන්පස පූජාව (Gilanpasa)</option>
-                  <option>පෝදා ශීල දානමය දායකත්වය (Poya Sil Dana)</option>
-                  <option>පිරිකර හා බෙහෙත් පූජාව (Aushadha Dana)</option>
+                  <option>පෝදා ශීල දායකත්වය (Poya Sil Sponsorship)</option>
+                  <option>පිරිකර හා බෙහෙත් පූජාව (Aushadha Puja)</option>
                   <option>සිවුපස හා නඩත්තු දායකත්වය</option>
                 </select>
               </div>
